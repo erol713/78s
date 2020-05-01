@@ -13,20 +13,14 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Account
 from .models import Access
-from .forms import CreateUserForm
+from .forms import *
+from .filters import *
 
 
 @login_required(login_url='welcome')
 def home(request):
 
     return render(request, 'base/index.html', {})
-
-
-@login_required(login_url='welcome')
-def overview(request):
-    accounts = Account.objects.all()
-
-    return render(request, 'base/MF/overview.html', {'accounts': accounts})
 
 
 def welcome(request):
@@ -55,23 +49,38 @@ def logoutUser(request):
 
 @login_required(login_url='welcome')
 def addUser(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
 
-        form = CreateUserForm()
+    userForm = CreateUserForm()
+    accessForm = AccessForm()
 
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'User added to the database' + user)
+    if request.method == 'POST':
+        userForm = CreateUserForm(request.POST)
+        accessForm = AccessForm(request.POST)
 
-                return redirect('welcome')
+        if userForm.is_valid() and accessForm.is_valid():
+            user = userForm.save(commit=False)
+            access = accessForm.save(commit=False)
+            access.username = user.username
+            userForm.save()
+            accessForm.save()
 
-        context = {'form': form}
-        return render(request, 'base/tech/addUser.html', context)
+            return redirect('tech')
+
+    context = {'userForm': userForm, 'accessForm': accessForm}
+    return render(request, 'base/tech/addUser.html', context)
+
+
+def addAccount(request):
+    form = AccountForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form = AccountForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('tech')
+
+    context = {'form': form}
+    return render(request, 'base/tech/addAccount.html', context)
 
 
 @login_required(login_url='welcome')
@@ -90,8 +99,27 @@ def reportUpload(request):
 
 
 @login_required(login_url='welcome')
+def overview(request):
+    accounts = Account.objects.all()
+
+    return render(request, 'base/MF/overview.html', {'accounts': accounts})
+
+
+@login_required(login_url='welcome')
 def tech(request):
-    return render(request, 'base/tech/techPanel.html', {})
+    accounts = Account.objects.all()
+    users = Access.objects.all()
+
+    myAccessFilter = AccessFilter(request.GET, queryset=users)
+    users = myAccessFilter.qs
+
+    myAccountFilter = AccountFilter(request.POST, queryset=accounts)
+    accounts = myAccountFilter.qs
+
+    context = {'accounts': accounts, 'users': users,
+               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter}
+
+    return render(request, 'base/tech/techPanel.html', context)
 
 
 def listAccounts(request):

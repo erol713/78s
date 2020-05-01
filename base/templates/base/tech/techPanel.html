@@ -1,4 +1,5 @@
 {% extends 'base/tech/techSidenav.html' %} {% block content %} {%block body %}
+
 <body class="sb-nav-fixed sb-sidenav-toggled">
   {% endblock %}
   <!--
@@ -18,8 +19,7 @@
               <div class="card-footer bg-white text-center">
                 <i class="fas fa-check" style="color: #82c921;"></i>
               </div>
-              <a class="card-link small" href="#"
-                >View Details
+              <a class="card-link small" href="#">View Details
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
@@ -30,8 +30,7 @@
               <div class="card-footer bg-white text-center">
                 <i class="fas fa-check" style="color: #82c921;"></i>
               </div>
-              <a class="card-link small" href="#"
-                >View Details
+              <a class="card-link small" href="#">View Details
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
@@ -42,8 +41,7 @@
               <div class="card-footer missing bg-white text-center">
                 <i class="fa fa-times"></i>
               </div>
-              <a class="card-link small" href="#"
-                >View Details
+              <a class="card-link small" href="#">View Details
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
@@ -54,8 +52,7 @@
               <div class="card-footer bg-white text-center" style="color: red;">
                 Yes
               </div>
-              <a class="card-link small" href="#"
-                >View Details
+              <a class="card-link small" href="#">View Details
                 <i class="fas fa-angle-right"></i>
               </a>
             </div>
@@ -68,64 +65,128 @@
 
         <div class="row">
           <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fa fa-map-marker mr-1"></i>Deployment location
-            </div>
-
-            <div class="card mb-4">
-              <!--graph-->
-              <div class="card-body">
-                <div class="chart-container" id="locationChart"></div>
+            <div class="card text-center mb-4">
+              <div class="card-header">Add User</div>
+              <div class="card-footer bg-white text-center" style="color: red;">
+                Yes
               </div>
+              <a class="card-link small" href="{% url 'addUser'  %}">Add User
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
 
           <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Deployment information
-            </div>
 
-            <div class="card mb-4">
-              <!--graph-->
-              <div class="card-body">
-                <div class="chart-container" id="deploymentChart"></div>
+            <div class="card text-center mb-4">
+              <div class="card-header">Add Account</div>
+              <div class="card-footer bg-white text-center" style="color: red;">
+                Yes
               </div>
-            </div>
-          </div>
-
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Completness Summary
-            </div>
-
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="chart-container" id="myBarChart"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Product Summary
-            </div>
-
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="chart-container" id="gapDetails"></div>
-              </div>
+              <a class="card-link small" href="{% url 'addAccount'  %}">Add Account
+                <i class="fas fa-angle-right"></i>
+              </a>
             </div>
           </div>
         </div>
+
+        <div class="col-xl-6">
+
+
+        </div>
+
 
         <!--END CHARTS-->
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table mr-1"></i>List of Users
+                <a style="float: right;" href="{% url 'addUser' %}" type="button">Add User</a>
+              </div>
+            </div>
+            <div class="card card-body">
 
-        <div class="card mb-4">
-          <div class="card-header">
-            <i class="fas fa-table mr-1"></i>Online Backup Analysis Table
+              <form method="get">
+                {{myAccessFilter.form}}
+                <button class="btn btn-primary" type="submit">Filter</button>
+              </form>
+
+            </div>
+            <div class="card card-body">
+              <table class="table table-sm">
+                <tr>
+                  <th></th>
+                  <th>Username</th>
+                  <th>Date created</th>
+                  <th>Role</th>
+                  <th>Area</th>
+                  <th></th>
+
+                </tr>
+                {% for user in users %}
+                <tr>
+                  <td></td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.date}}</td>
+                  <td>{{user.role}}</td>
+                  <td>{{user.area}}</td>
+                  <td><a type="button">Delete</td>
+
+                </tr>
+                {% endfor %}
+
+              </table>
+            </div>
+          </div>
+
+
+          <div class="col-xl-6">
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table mr-1"></i>List of Accounts
+                <a style="float: right;" href="{% url 'addAccount' %}" type="button">Add Account</a>
+              </div>
+            </div>
+            <div class="card card-body">
+
+              <form method="POST">
+                {% csrf_token %}
+                {{myAccountFilter.form}}
+                <button class="btn btn-primary" type="submit">Filter</button>
+              </form>
+
+            </div>
+            <div class="card card-body">
+              <table class="table table-sm">
+                <tr>
+                  <th></th>
+                  <th>Company name</th>
+                  <th>Date uploaded</th>
+                  <th>Code</th>
+                  <th>Status</th>
+                  <th>Area</th>
+                  <th></th>
+
+                </tr>
+                {% for account in accounts %}
+                <tr>
+                  <td></td>
+                  <td>{{account.name}}</td>
+                  <td>{{account.dateUploaded}}</td>
+                  <td>{{account.code}}</td>
+                  <td>{{account.status}}</td>
+                  <td>{{account.area}}</td>
+                  <td><a type="button">Download</td>
+
+                </tr>
+                {% endfor %}
+
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+
     </main>
     <footer class="py-4 bg-light mt-auto">
       <div class="container-fluid">
@@ -141,7 +202,7 @@
     </footer>
   </div>
   <!--
-      Demo content
+      Modals
     -->
 
   {% endblock %}

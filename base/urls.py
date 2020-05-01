@@ -11,6 +11,7 @@ urlpatterns = [
     path('tech', views.tech, name='tech'),
     path('listAccounts', views.listAccounts, name='listAccounts'),
     path('addUser', views.addUser, name='addUser'),
+    path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),
     path('reportUpload', views.reportUpload, name='reportUpload'),
 

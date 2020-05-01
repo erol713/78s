@@ -74,11 +74,11 @@
 
         <div class="details">
           <section class="row">
-            <div class="lists col-xl-6">
+            <div class=" col-xl-6">
               <div class="card-header-tab">
                 <i class="fas fa-chart-bar mr-1"></i>Deployment information
               </div>
-              <ul class="nav nav-tabs">
+              <ul class=" lists nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link tab-link active" href="#scope">Scope</a>
                 </li>
@@ -127,8 +127,11 @@
 
 
             <div class="col-xl-6">
-              <div class="card-header-tab">
-                <i class="fas fa-chart-bar mr-1"></i>Deployment information
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-table mr-1"></i>List of Accounts
+                  <a style="float: right;" href="{% url 'addAccount' %}" type="button">Add Account</a>
+                </div>
               </div>
 
               <div class="card card-body">
@@ -138,8 +141,9 @@
                     <th>Company name</th>
                     <th>Date uploaded</th>
                     <th>Code</th>
+                    <th>Status</th>
                     <th>Area</th>
-                    <th>Download report</th>
+                    <th></th>
 
                   </tr>
                   {% for account in accounts %}
@@ -148,6 +152,7 @@
                     <td>{{account.name}}</td>
                     <td>{{account.dateUploaded}}</td>
                     <td>{{account.code}}</td>
+                    <td>{{account.status}}</td>
                     <td>{{account.area}}</td>
                     <td><a type="button">Download</td>
 
@@ -156,9 +161,6 @@
 
                 </table>
               </div>
-
-
-
             </div>
           </section>
         </div>

@@ -39,3 +39,44 @@
 .import:active {
   border: none;
 }
+
+.modal-header {
+  border-bottom: 1px solid #2cacc9 !important;
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+}
+
+.modal-footer {
+  border-top: 1px solid #2cacc9 !important;
+}
+
+.modalBtns .btn {
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #2cacc9;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.modalBtns .btn:hover {
+  background-color: #008aad;
+  border: 1px solid #2cacc9;
+  color: #fff !important;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-height: 100vh;
+  padding: 20px;
+}
+
+.modal-title {
+  color: #2cacc9 !important;
+  font-weight: bold;
+}

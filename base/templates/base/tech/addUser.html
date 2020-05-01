@@ -8,12 +8,15 @@
 
         <form method="POST" action="">
             {% csrf_token %}
-            {% for field in form %}
+            {% for field in userForm %}
+            {{field}}
+            {% endfor %}
+            {% for field in accessForm %}
             {{field.label}}
             {{field}}
             {% endfor %}
 
-            {{form.errors}}
+            {{userForm.errors}}
             <input type="submit" class="fadeIn fourth" name="addUser" value="Add user" />
         </form>
     </div>

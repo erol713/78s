@@ -1,0 +1,27 @@
+{% extends 'base/logIn/loginHeader.html' %} {% block content%} {% load static %}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img class="logo-78s" src="{% static '/images/78s.png' %}" />
+        </div>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.name.label }}
+            {{ form.name }}
+            {{ form.code.label }}
+            {{ form.code }}
+            {{ form.status.label }}
+            {{ form.status }}
+            {{ form.area.label }}
+            {{ form.area }}
+
+
+            {{form.errors}}
+            <input type="submit" class="fadeIn fourth" name="addAccount" value="Add account" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}
