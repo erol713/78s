@@ -1,0 +1,30 @@
+{% extends 'base/logIn/loginHeader.html' %} {% block content%} {% load static %}
+{% include "base/logIn/hello.html" %}
+
+<!--Login page-->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img class="logo-78s" src="{% static '/images/78s.png' %}" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login" />
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" />
+      <input type="submit" class="fadeIn fourth" value="Log In" />
+      {{form.errors}}
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Request Password?</a>
+    </div>
+  </div>
+</div>
+{%endblock%}

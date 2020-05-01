@@ -1,0 +1,129 @@
+.jumbocard {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  text-align: center;
+  width: 50% !important;
+  border: none;
+  align-items: center;
+}
+
+.jumbocard h1 {
+  color: #2cacc9;
+}
+
+.jumbocard a {
+  font-size: large;
+}
+
+.jumbocard:hover {
+  background-color: #2cacc9;
+  color: #fff !important;
+  border: 1px solid #2cacc9;
+}
+
+.jumbocard:hover h1 {
+  color: #fff !important;
+}
+
+.jumbocard:hover p {
+  color: #fff !important;
+}
+
+.jumbocard:hover hr {
+  border-bottom: 1px solid #fff !important;
+  width: 60%;
+}
+.my-4 {
+  border-bottom: 1px solid #2cacc9 !important;
+  width: 60%;
+}
+
+.lead {
+  color: #008aad;
+  font-weight: bold;
+}
+
+.piechart-container {
+  min-height: 400px;
+  width: 100%;
+}
+
+.details {
+  margin-top: 3rem;
+  opacity: 0;
+  transition: opacity 0.6s linear;
+}
+.details .nav-tabs .nav-link:hover {
+  color: #008aad !important;
+}
+.active-list {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
+.list-group-flush {
+  width: 30%;
+  padding-inline-start: 20px !important;
+}
+
+.list-group-item {
+  background-color: #fff;
+  border: 1px solid #2cacc9;
+}
+.details .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #2cacc9;
+  border-color: #2cacc9 #2cacc9 #2cacc9;
+}
+.details .nav-tabs .nav-link {
+  color: #008aad;
+  border-bottom: 1px solid #2cacc9;
+  font-weight: bold;
+}
+
+.details .nav {
+  padding-inline-start: 0px !important;
+  margin-top: 1rem;
+}
+
+.details .nav-tabs {
+  border-bottom: none;
+}
+
+.lists {
+  background-color: #fff !important;
+}
+
+.show {
+  opacity: 1;
+}
+
+.DownloadBtn {
+  background-color: #fff;
+  border: 1px solid #2cacc9;
+  color: #088aad !important;
+  font-weight: bold;
+  padding: 0.5rem 1rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1.5 !important;
+  border-radius: 0.3rem !important;
+}
+
+.DownloadBtn:hover {
+  background-color: #008aad;
+  border: 1px solid #2cacc9;
+  color: #fff !important;
+}
+
+.ButtonWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}

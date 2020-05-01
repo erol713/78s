@@ -1,0 +1,222 @@
+h1 {
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+h3 {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+p {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+blockquote {
+  font-family: "Open Sans";
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+pre {
+  font-family: "Open Sans";
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+}
+.card-header {
+  color: #2cacc9 !important;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #fff !important;
+  font-weight: bold;
+  border-bottom: 1px solid #2cacc9 !important;
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+}
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  font-size: x-large;
+  border-radius: 10px 10px 10px 10px !important;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 60%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 138, 173, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 138, 173, 0.3);
+  -moz-box-shadow: 0 30px 60px 0 rgba(0, 138, 173, 0.3);
+
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  padding: 25px 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  color: #2cacc9;
+  border-bottom: 1px solid #2cacc9 !important;
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+}
+
+.card a {
+  color: #2cacc9 !important;
+}
+.card a:hover {
+  font-weight: bold;
+}
+
+.card .btn {
+  background-color: #fff;
+  border: 1px solid #2cacc9;
+}
+
+.card .btn:hover {
+  background-color: #008aad;
+  border: 1px solid #2cacc9;
+  color: #fff !important;
+}
+
+.card-title {
+  font-size: large;
+  padding: 10px;
+}
+
+.logo-78s {
+  float: right;
+  padding: 10px 60px;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-height: 100vh;
+  padding: 20px;
+}
+
+.modal-title {
+  color: #2cacc9 !important;
+  font-weight: bold;
+}
+
+.uploadGif {
+  background: 0 0 contain;
+}
+
+.modal-header {
+  border-bottom: 1px solid #2cacc9 !important;
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+  box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+}
+
+.modal-footer {
+  border-top: 1px solid #2cacc9 !important;
+}
+
+.modalBtns .btn {
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #2cacc9;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.modalBtns .btn:hover {
+  background-color: #008aad;
+  border: 1px solid #2cacc9;
+  color: #fff !important;
+}
+
+.breadcrumb-pagination {
+  width: 100%;
+  border-bottom: 1px solid #e1e6eb;
+  text-align: center;
+  float: left;
+  color: #b3b7c1;
+}
+
+.breadcrumb-pagination div {
+  width: 25%;
+  display: inline-block;
+}
+
+.breadcrumb-pagination div span {
+  margin: 0 auto;
+  display: block;
+  border-radius: 100%;
+  height: 30px;
+  width: 36px;
+  padding: 6px 0 0 0px;
+  font-size: 20px;
+}
+
+.completed span {
+  background-color: NONE;
+  color: #95db89;
+  border: 2px solid #95db89;
+}
+
+.active span {
+  background-color: #00abc9;
+  color: #fff;
+}
+
+.todo span {
+  background-color: none;
+  color: #e1e6eb;
+  border: 2px solid #e1e6eb;
+}

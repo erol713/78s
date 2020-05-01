@@ -1,0 +1,79 @@
+{% extends 'base/uploadData/uploadHeader.html' %} {% block content %}
+
+{% load static %}
+
+    <div class="title">
+    <h1>Upload Page</h1>
+
+    </div>
+    
+    <div class="wrapper">
+        <div class="row">
+          <!--CARDS-->
+          <div class="col-xl-4 col-md-6"><div id="formContent"> 
+            
+            <div class="card">
+              <div class="card-header">
+                LVQ
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">- Text format questions -</h5>
+                <p class="card-text">
+                  Specific details on this data collection item can be found&nbsp; <a type="button" data-toggle="modal" data-target="#LVQ"> here</a>
+                </p>
+                <a type="button" data-toggle="modal" data-target="#LVQupload" class="btn">Upload LVQ</a>
+              </div>
+            </div>
+          </div></div>
+
+
+          <div class="col-xl-4 col-md-6"><div id="formContent">
+          
+            <div class="card">
+              <div class="card-header">
+                Outputs
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">- Script and query outputs -</h5>
+                <p class="card-text">
+                  Specific details on this data collection item can be found&nbsp;<a type="button" data-toggle="modal" data-target="#Outputs"> here</a>
+                </p>
+                <a type="button" data-toggle="modal" data-target="#OutputsUpload" class="btn ">Upload Outputs</a>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+          <div class="col-xl-4 col-md-6"><div id="formContent">
+            <div class="card">
+              <div class="card-header">
+                Screenshots
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">- License and deployment details -</h5>
+                <p class="card-text">
+                  Specific details on this data collection item can be found&nbsp;<a type="button" data-toggle="modal" data-target="#Screenshots"> here</a>
+                </p>
+                <a type="button" data-toggle="modal" data-target="#ScreenshotsUpload" class="btn">Upload Screenshots</a>
+              </div>
+            </div>
+          </div></div>
+          
+            <!--END CARDS-->
+          </div>
+      </div>
+
+    </div>
+    <img class="logo-78s" src="{% static '/images/78s.png' %}" />
+
+
+      <!-- Modal -->
+{% include "base/uploadData/details.html" %}
+{% include "base/uploadData/upload.html" %}
+
+     
+
+    
+    {% endblock %}
+ 

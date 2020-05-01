@@ -1,0 +1,124 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="{% static 'images/78small.png' %}">
+  <title>7/8s</title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/sidebar.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/tech.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/overview.css' %}" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+    crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous">
+  </script>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6S0jjEBBZUVQCUnP8dirEoTYjd8gH7Sk&language=en"
+    type="text/javascript"></script>
+
+
+
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+</head>{% block body %}
+
+<body class="sb-nav-fixed">
+  {% endblock %}
+  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'welcome'  %}">
+      <img style="margin-left: 15px;" src="{% static '/images/letterLogo.png' %}">
+    </a>
+
+    <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- 
+      <div
+      style="
+        font-size: larger;
+        font-weight: bold;
+        border-bottom: 1px solid #2cacc9;
+        color:#008aad;
+        -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+        -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+        box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+        "
+      class="mx-auto " 
+    >
+      VIVACOM
+      </div>
+
+                Navbar potential form-->
+
+    <!-- Navbar-->
+    <span class="navbar-nav d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">Hello, {{request.user}}
+    </span>
+    <ul class="navbar-nav d-md-inline-block">
+      <li class=" nav-item dropleft">
+        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="{% url 'welcome' %}">Customer</a><a class="dropdown-item"
+            href="{% url 'uploadDownload'  %}">Upload data</a>
+          <a class="dropdown-item" href="{% url 'tech'  %}">Technical team</a>
+          <a class="dropdown-item" href="{% url 'reportUpload'  %}">Report Upload</a>
+          <a class="dropdown-item" href="{% url 'overview'  %}">MF</a>
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!--SideNav-->
+  {% block sidenav %}
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
+  </div>
+  </div>
+
+
+  <!--JS scripts-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="//cdn.zingchart.com/zingchart.jquery.min.js "></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/scripts.js' %}"></script>
+
+  <!--
+      Link to charts
+    -->
+  <script src="{% static 'assets/demo/deploymentChart.js'%}"></script>
+  <script src="{% static 'assets/demo/chart-bar-demo.js'%}"></script>
+  <script src="{% static 'assets/demo/locationChart.js'%}"></script>
+  <script src="{% static 'assets/demo/gapDetails.js'%}"></script>
+  <script src="{% static 'assets/demo/complianceChart.js'%}"></script>
+  <script src="{% static 'assets/demo/test.js'%}"></script>
+
+
+  <!--Link to tables-->
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+  <script src="{% static 'https://cdn.datatables.net/1.1'%}0.20/js/dataTables.bootstrap4.min.js"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'assets/demo/datatables-demo.js'%}"></script>
+
+</body>
+
+</html>

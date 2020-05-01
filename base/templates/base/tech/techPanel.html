@@ -1,0 +1,148 @@
+{% extends 'base/tech/techSidenav.html' %} {% block content %} {%block body %}
+<body class="sb-nav-fixed sb-sidenav-toggled">
+  {% endblock %}
+  <!--
+       content
+      -->
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid">
+        <h1 class="mt-4"></h1>
+
+        <!--CARDS-->
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6">
+            <div class="card text-center mb-4">
+              <div class="card-header">LVQ submited</div>
+              <div class="card-footer bg-white text-center">
+                <i class="fas fa-check" style="color: #82c921;"></i>
+              </div>
+              <a class="card-link small" href="#"
+                >View Details
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card text-center mb-4">
+              <div class="card-header">Outputs submited</div>
+              <div class="card-footer bg-white text-center">
+                <i class="fas fa-check" style="color: #82c921;"></i>
+              </div>
+              <a class="card-link small" href="#"
+                >View Details
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card text-center mb-4">
+              <div class="card-header">Screenshots submited</div>
+              <div class="card-footer missing bg-white text-center">
+                <i class="fa fa-times"></i>
+              </div>
+              <a class="card-link small" href="#"
+                >View Details
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card text-center mb-4">
+              <div class="card-header">Missing data</div>
+              <div class="card-footer bg-white text-center" style="color: red;">
+                Yes
+              </div>
+              <a class="card-link small" href="#"
+                >View Details
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--END CARDS-->
+
+        <!--CHARTS-->
+
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card-header-tab">
+              <i class="fa fa-map-marker mr-1"></i>Deployment location
+            </div>
+
+            <div class="card mb-4">
+              <!--graph-->
+              <div class="card-body">
+                <div class="chart-container" id="locationChart"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6">
+            <div class="card-header-tab">
+              <i class="fas fa-chart-bar mr-1"></i>Deployment information
+            </div>
+
+            <div class="card mb-4">
+              <!--graph-->
+              <div class="card-body">
+                <div class="chart-container" id="deploymentChart"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6">
+            <div class="card-header-tab">
+              <i class="fas fa-chart-bar mr-1"></i>Completness Summary
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="chart-container" id="myBarChart"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6">
+            <div class="card-header-tab">
+              <i class="fas fa-chart-bar mr-1"></i>Product Summary
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="chart-container" id="gapDetails"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--END CHARTS-->
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-table mr-1"></i>Online Backup Analysis Table
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; Erol Mrzic 2020</div>
+          <div>
+            <a href="#">Privacy Policy</a>
+            &middot;
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--
+      Demo content
+    -->
+
+  {% endblock %}
+</body>

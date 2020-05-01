@@ -1,0 +1,32 @@
+{% extends 'base/navbars/sidenav.html' %} {% block content %}{%block body %}
+
+<body class="sb-nav-fixed sb-sidenav-toggled">
+    {% endblock %}
+    <div id="layoutSidenav_content">
+
+        <div class="col-md-7">
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>User submitted</th>
+                        <th>Company name</th>
+                        <th>Code</th>
+                        <th>Area</th>
+
+                    </tr>
+                    {% for account in accounts %}
+                    <tr>
+                        <td>{{account.user.user}}</td>
+                        <td>{{account.name}}</td>
+                        <td>{{account.code}}</td>
+                        <td>{{account.area}}</td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {%endblock%}

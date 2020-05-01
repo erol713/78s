@@ -1,0 +1,232 @@
+{% extends 'base/navbars/sidenav.html' %} {% block content %}{%block body %}
+
+<body class="sb-nav-fixed sb-sidenav-toggled">
+
+
+  {% endblock %}
+
+  <!--
+       content
+      -->
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid">
+        <h1 class="mt-4">
+          <div style="
+            
+              font-size: larger;
+              font-weight: bold;
+              border-bottom: 1px solid #2cacc9;
+              color:#008aad;
+              -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+              -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+              box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+              text-align: center!important;
+              " class="mx-auto col-xl-4 mb-4 col-md-6">
+            {latest.accounts.name}
+
+        </h1>
+
+        <!--CARDS-->
+
+        <div class="row">
+          <!--INSTANCES-->
+          <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link nav-link" href="#scope">
+            <h1 class="display-1">9</h1>
+            <hr class="my-4" />
+            <p class="lead">
+              Products in Scope
+            </p>
+          </div>
+
+          <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#not-deployed">
+            <h1 class="display-1">1</h1>
+            <hr class="my-4" />
+            <p class="lead">
+              Products Not Deployed
+            </p>
+          </div>
+
+          <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#analysed">
+            <h1 class="display-1">8</h1>
+            <hr class="my-4" />
+            <p class="lead">
+              Products Analysed
+            </p>
+          </div>
+
+          <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#missing-data">
+            <h1 class="display-1">1</h1>
+            <hr class="my-4" />
+            <p class="lead">
+              Products Missing Data
+            </p>
+          </div>
+          <!--END INSTANCES-->
+        </div>
+
+        <!--END CARDS-->
+        <div class="ButtonWrapper">
+          <a type="button" data-toggle="modal" data-target="#LVQupload" class="DownloadBtn btn">DOWNLOAD FINAL PACK</a>
+        </div>
+
+        <!-- LIST-->
+
+        <div class="details">
+          <section class="row">
+            <div class="lists col-xl-6">
+              <div class="card-header-tab">
+                <i class="fas fa-chart-bar mr-1"></i>Deployment information
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link tab-link active" href="#scope">Scope</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tab-link" href="#not-deployed">Not deployed</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tab-link" href="analysed">Analysed</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tab-link" href="#missing-data">Missing data</a>
+                </li>
+              </ul>
+
+              <ul id="scope" class="list-group list-group-flush active-list">
+                <li class="list-group-item">Scope</li>
+                <li class="list-group-item">Scope</li>
+                <li class="list-group-item">Scope</li>
+                <li class="list-group-item">Scope</li>
+                <li class="list-group-item">Scope</li>
+              </ul>
+
+              <ul id="not-deployed" class="list-group list-group-flush inactive">
+                <li class="list-group-item">ndep</li>
+                <li class="list-group-item">ndep</li>
+                <li class="list-group-item">ndep</li>
+                <li class="list-group-item">ndep</li>
+                <li class="list-group-item">ndep</li>
+              </ul>
+              <ul id="analysed" class="list-group list-group-flush inactive">
+                <li class="list-group-item">analysed</li>
+                <li class="list-group-item">analysed</li>
+                <li class="list-group-item">analysed</li>
+                <li class="list-group-item">analysed</li>
+                <li class="list-group-item">analysed</li>
+              </ul>
+
+              <ul id="missing-data" class="list-group list-group-flush inactive">
+                <li class="list-group-item">Missing</li>
+                <li class="list-group-item">Missing</li>
+                <li class="list-group-item">Missing</li>
+                <li class="list-group-item">Missing</li>
+                <li class="list-group-item">Missing</li>
+              </ul>
+            </div>
+
+
+            <div class="col-xl-6">
+              <div class="card-header-tab">
+                <i class="fas fa-chart-bar mr-1"></i>Deployment information
+              </div>
+
+              <div class="card card-body">
+                <table class="table table-sm">
+                  <tr>
+                    <th></th>
+                    <th>Company name</th>
+                    <th>Date uploaded</th>
+                    <th>Code</th>
+                    <th>Area</th>
+                    <th>Download report</th>
+
+                  </tr>
+                  {% for account in accounts %}
+                  <tr>
+                    <td></td>
+                    <td>{{account.name}}</td>
+                    <td>{{account.dateUploaded}}</td>
+                    <td>{{account.code}}</td>
+                    <td>{{account.area}}</td>
+                    <td><a type="button">Download</td>
+
+                  </tr>
+                  {% endfor %}
+
+                </table>
+              </div>
+
+
+
+            </div>
+          </section>
+        </div>
+
+        <!-- END LIST-->
+
+        <!-- PA EA 
+
+        <div class="card mb-4">
+          <div class="card-header"><i class="fas fa-table mr-1"></i>PA EA</div>
+        </div>
+
+        END PA EA -->
+      </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; Erol Mrzic 2020</div>
+          <div>
+            <a href="#">Privacy Policy</a>
+            &middot;
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    $(function () {
+      $(".jumbocard").click(function (e) {
+        $(".details").addClass("show");
+        //e.preventDefault();
+      });
+    });
+
+    $(".tab-link").on("click", function () {
+      // Switch the class on the previously active div to make it hidden
+      $(".active-list").removeClass("active-list").addClass("inactive");
+      // Switch the class on the new active div to show it
+      var selectorForActiveDemo = $(this).attr("href");
+      $(selectorForActiveDemo)
+        .removeClass("inactive")
+        .addClass("active-list");
+    });
+
+    $(".jumbocard").click(function (e) {
+      $(".nav-link").removeClass("active");
+
+      var $this = $(this);
+      if (!$this.hasClass("active")) {
+        $this.addClass("active");
+      }
+      //e.preventDefault();
+    });
+
+    $(document).ready(function () {
+      $(".nav-link").click(function (e) {
+        $(".nav-link").removeClass("active");
+
+        var $this = $(this);
+        if (!$this.hasClass("active")) {
+          $this.addClass("active");
+        }
+        //e.preventDefault();
+      });
+    });
+  </script>
+  {% endblock %}
+</body>

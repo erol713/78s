@@ -1,0 +1,37 @@
+{
+  "name": "ZingChart-jQuery",
+  "version": "2.0.0",
+  "homepage": "https://github.com/zingchart/ZingChart-jQuery",
+  "authors": [
+    "ZingChart"
+  ],
+  "description": "ZingChart jQuery wrapper for the ZingChart charting library",
+  "main": "zingchart.jquery.js",
+  "keywords": [
+    "ZingChart",
+    "jQuery",
+    "wrapper",
+    "javascript charts",
+    "html5 charts",
+    "jquery charts",
+    "charting library"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "11c4ca0ca85238a5916ec120f14d7dce38949201"
+  },
+  "_source": "https://github.com/ZingChart/ZingChart-jQuery.git",
+  "_target": "^2.0.0",
+  "_originalSource": "zingchart-jquery",
+  "_direct": true
+}

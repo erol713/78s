@@ -1,0 +1,1 @@
+Error creating the report "Interactive": CRS is not running in Manager-of-Managers Server mode. The empty file cell/mom_info must be created and Data Protector server processes must be restarted on the Manager-of-Managers server host. System error: [2] No such file or directory

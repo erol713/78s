@@ -1,0 +1,206 @@
+-key host[name -flags 0x80000000
+-key os -flags 0x80000000
+-key owner
+-key mac
+-key encryption
+-key mag[ic_packet
+-key 64bit
+-key virtual[_host -flags 0x80000000
+-key main[_name -flags 0x80000000
+-key clust
+-key dev_server
+-key email -flags 0x80000000
+-key smtp -flags 0x80000000
+-key broadcast -flags 0x80000000
+-key external -flags 0x80000000
+-key log -flags 0x80000000
+-key snmp -flags 0x80000000
+-key ndmp_type
+-key ndmp_user
+-key ndmp_pass[word -flags 0x20000000
+-key ndmp_port
+-key pics
+-key pipath
+-key pidatapath
+-key piusername
+-key pipassword -flags 0x20000000
+-key pimode
+-key o1 -desc "o1"
+-key appserver_type -flags 0x80000000
+-key appserver_subtype -flags 0x80000000
+-key appserver_port 
+-key appserver_user -flags 0x80000000
+-key appserver_pass -flags 0xA0000000
+-key appserver_cert -flags 0x80000000
+-key appserver_web_root -flags 0x80000000
+-key appserver_organization -flags 0x80000000
+-key appserver_integrated_security -flags 0x80000000
+-key appserver_vepagre_plugin      -flags 0x80000000
+-key core -desc "Core Component" -nlsset 159 -nlsId 12262
+-key integ -desc "Core of Integrations component" -nlsset 159 -nlsId 12266
+-key cs -desc "Cell Server Component" -nlsset 159 -nlsId 12263
+-key da -desc "Disk Agent" -nlsset 159 -nlsId 12162 -flags 0x3 -ntpath "" -uxpath ""
+-key ma -desc "General Media Agent" -nlsset 159 -nlsId 12163 -flags 0x10003 -ntpath "" -uxpath ""
+-key ndmp -desc "NDMP Media Agent" -nlsset 159 -nlsId 12187 -flags 0x10003 -ntpath "" -uxpath ""
+-key acs -desc "ACS Media Agent" -nlsset 159 -nlsId 12174 -flags 0x10003 -ntpath "" -uxpath ""
+-key das -desc "DAS Media Agent" -nlsset 159 -nlsId 12175 -flags 0x10003 -ntpath "" -uxpath ""
+-key fxma -desc "EMC Fastrax Media Agent" -nlsset 159 -nlsId 12185 
+-key cc -desc "User Interface" -nlsset 159 -nlsId 12176 -flags 0x3 -ntpath "" -uxpath ""
+-key momgui -desc "MoM User Interface" -nlsset 159 -nlsId 12177 -flags 0x3 -ntpath "" -uxpath ""
+-key javagui -desc "Java User Interface" -nlsset 159 -nlsId 12267 -flags 0x3 -ntpath "" -uxpath ""
+-key snapa -desc "HPE Disk Array VA Agent" -nlsset 159 -nlsId 12182 -flags 0x7 -ntpath "" -uxpath ""
+-key saa -desc "HPE Smart Array Agent" -nlsset 159 -nlsId 12259
+-key p10000 -desc "HPE 3PAR VSS Agent" -nlsset 159 -nlsId 12504 -flags 0xb -ntpath "" -uxpath ""
+-key p4000 -desc "HPE P4000 VSS Agent" -nlsset 159 -nlsId 12279 -flags 0xb -ntpath "" -uxpath ""
+-key smisa -desc "HPE P6000 / HPE 3PAR SMI-S Agent" -nlsset 159 -nlsId 12264 -flags 0xb -ntpath "" -uxpath ""
+-key netapp -desc "NetApp Storage Provider" -nlsset 159 -nlsId 12404 -flags 0x8b -ntpath "" -uxpath ""
+-key emcvnx -desc "EMC VNX Storage Provider" -nlsset 159 -nlsId 12406 -flags 0x8b -ntpath "" -uxpath ""
+-key emcvmax -desc "EMC VMAX Storage Provider" -nlsset 159 -nlsId 12407 -flags 0x8b -ntpath "" -uxpath ""
+-key ssea -desc "HPE P9000 Agent" -nlsset 159 -nlsId 12180 -flags 0x7 -ntpath "" -uxpath ""
+-key msexchange -desc "MS Exchange 5.x Integration" -nlsset 159 -nlsId 12171 -flags 0x7 -ntpath "" -uxpath ""
+-key msese -desc "MS Exchange Integration" -nlsset 159 -nlsId 12188 -flags 0x7 -ntpath "" -uxpath ""
+-key e2010 -desc "MS Exchange Server 2010+ Integration" -nlsset 159 -nlsId 12274 -flags 0x7 -ntpath "" -uxpath ""
+-key msmbx -desc "MS Single Mailbox Integration" -nlsset 159 -nlsId 12258 -flags 0x7 -ntpath "" -uxpath ""
+-key mssps -desc "MS SharePoint Portal Server Integration" -nlsset 159 -nlsId 12196 -flags 0x7 -ntpath "" -uxpath ""
+-key mssharepoint -desc "MS SharePoint 2007/2010/2013 Integration" -nlsset 159 -nlsId 12276 -flags 0x7 -ntpath "" -uxpath ""
+-key mssql -desc "MS SQL 6.5 Integration" -nlsset 159 -nlsId 12170
+-key mssql70 -desc "MS SQL 7.0/2000 Integration" -nlsset 159 -nlsId 12179 -flags 0x7 -ntpath "" -uxpath ""
+-key vss -desc "MS Volume Shadow Copy Integration" -nlsset 159 -nlsId 12257 -flags 0x7 -ntpath "" -uxpath ""
+-key db2 -desc "IBM DB2 Integration" -nlsset 159 -nlsId 12502 -flags 0x7 -ntpath "" -uxpath ""
+-key emc -desc "EMC Symmetrix Agent" -nlsset 159 -nlsId 12173 -flags 0x3 -ntpath "" -uxpath ""
+-key fastrax -desc "EMC Fastrax Resolving Agent" -nlsset 159 -nlsId 12186 -flags 0x6 -ntpath "" -uxpath ""
+-key saphana -desc "SAP HANA Integration" -nlsset 159 -nlsId 12506 -flags 0x7 -ntpath "" -uxpath ""
+-key informix -desc "Informix Integration" -nlsset 159 -nlsId 12168 -flags 0x7 -ntpath "" -uxpath ""
+-key lotus -desc "Lotus Integration" -nlsset 159 -nlsId 12189 -flags 0x7 -ntpath "" -uxpath ""
+-key oracle -desc "Oracle7 Integration" -nlsset 159 -nlsId 12164
+-key oracle8 -desc "Oracle Integration" -nlsset 159 -nlsId 12172 -flags 0x7 -ntpath "" -uxpath ""
+-key mysql -desc "MySQL Integration" -nlsset 159 -nlsId 12405 -flags 0x7 -ntpath "" -uxpath ""
+-key postgresql -desc "PostgreSQL Integration" -nlsset 159 -nlsId 12408 -flags 0x7 -ntpath "" -uxpath ""
+-key ov -desc "HPE Network Node Manager Backup Integration" -nlsset 159 -nlsId 12183 -flags 0x3 -ntpath "" -uxpath ""
+-key clus -desc "MS Server Cluster Integration" -nlsset 159 -nlsId 12178 -flags 0x2 -ntpath "" -uxpath "" -flags 0x80000000
+-key opc -desc "VPO Integration" -nlsset 159 -nlsId 12167 -flags 0x0 -ntpath "" -uxpath ""
+-key sapdb -desc "SAP MaxDB Integration" -nlsset 159 -nlsId 12195 -flags 0x7 -ntpath "" -uxpath ""
+-key sap -desc "SAP R/3 Integration" -nlsset 159 -nlsId 12166 -flags 0x7 -ntpath "" -uxpath ""
+-key sybase -desc "Sybase Integration" -nlsset 159 -nlsId 12169 -flags 0x7 -ntpath "" -uxpath ""
+-key vmware -desc "VMware Integration (Legacy)" -nlsset 159 -nlsId 12273 -flags 0x7 -ntpath "" -uxpath ""
+-key vepa -desc "Virtual Environment Integration" -nlsset 159 -nlsId 12275 -flags 0xf -ntpath "" -uxpath ""
+-key riss_con -desc "RISS Connector" -nlsset 159 -nlsId 12269 -flags 0x3
+-key riss_dax -desc "RISS Disk Agent Extension" -nlsset 159 -nlsId 12270 -flags 0x3
+-key autodr -desc "Automatic Disaster Recovery Module" -nlsset 159 -nlsId 12256 -flags 0x3 -ntpath "" -uxpath ""
+-key StoreOnceSoftware -desc "StoreOnce software deduplication" -nlsset 159 -nlsId 12281 -flags 0x3 -ntpath "" -uxpath ""
+-key ssp -desc "Site Specific Patch" -nlsset 159 -nlsId 12260
+-key dsa -desc "Disk Store Agent" -nlsset 159 -nlsId 12265
+-key exchgre -desc "MS Exchange Granular Recovery Extension" -nlsset 159 -nlsId 12282 -flags 0x3
+-key grm -desc "MS SharePoint Granular Recovery Extension" -nlsset 159 -nlsID 12280 -flags 0x3
+-key vmwaregre_agent -desc "VMware Granular Recovery Extension Agent" -nlsset 159 -nlsId 12283 -flags 0xb
+-key vmwaregre_webplugin -desc "VMware Granular Recovery Extension Web Plug-In" -nlsset 159 -nlsId 12284 -flags 0x3
+-key bpt_ls -desc "Brazilian Portuguese Documentation (Guides, Help)" -nlsset 159 -nlsId 12285 -flags 0x3
+-key docs -desc "English Documentation (Guides, Help)" -nlsset 159 -nlsId 12268 -flags 0x3
+-key enu_ls -desc "English Documentation (Guides, Help)" -nlsset 159 -nlsId 12250 -flags 0x2
+-key fra_ls -desc "French Documentation (Guides, Help)" -nlsset 159 -nlsId 12253 -flags 0x3
+-key deu_ls -desc "German Documentation (Guides, Help)" -nlsset 159 -nlsId 12251 -flags 0x3
+-key ita_ls -desc "Italian Documentation (Guides, Help)" -nlsset 159 -nlsId 12254
+-key jpn_ls -desc "Japanese Documentation (Guides, Help)" -nlsset 159 -nlsId 12252 -flags 0x3
+-key kor_ls -desc "Korean Documentation (Guides, Help)" -nlsset 159 -nlsId 12286 -flags 0x3
+-key rus_ls -desc "Russian Documentation (Guides, Help)" -nlsset 159 -nlsId 12287 -flags 0x3
+-key chs_ls -desc "Simplified Chinese Documentation (Guides, Help)" -nlsset 159 -nlsId 12278 -flags 0x3
+-key esp_ls -desc "Spanish Documentation (Guides, Help)" -nlsset 159 -nlsId 12255 -flags 0x3
+-key push_inst -flags 0x40000000
+-key pegasus -desc "Pegasus Libraries" -nlsset 159 -nlsId 12271
+-key vls_am -desc "VLS Automigration" -nlsset 159 -nlsId 12272 -flags 0xb
+-key test -desc "Test Binary" -nlsset 159 -nlsId 12298
+-key ts_core -desc "Core Technology Stack" -nlsset 159 -nlsId 12288
+-key ts_cs -desc "Cell Server Technology Stack" -nlsset 159 -nlsId 12289
+-key ts_as -desc "Application Server Technology Stack" -nlsset 159 -nlsId 12290
+-key ws -desc "Web Services" -nlsset 159 -nlsId 12291
+-key ts_jre -desc "Java Runtime Environment Technology Stack" -nlsset 159 -nlsId 12294
+-key jce_dispatcher -desc "Job Control Engine Service Dispatcher" -nlsset 159 -nlsId 12292
+-key jce_serviceregistry -desc "Job Control Engine Service Registry" -nlsset 159 -nlsId 12293
+-key vmwarehost
+-key esx
+-key vcenter
+-key grm_user
+-key grm_password -flags 0x20000000
+-key testmodule -desc "Site Specific Patch / HotFix" -nlsset 159 -nlsId 12297 -flags 0x3
+-key tm_ssp_num
+-key tmsspname
+-key tmsspstatus
+-key gendev_user -flags 0x80000000
+-key gendev_pass -flags 0x80000000
+-key cshost[name -flags 0x80000000
+-key corepatch -desc "Core Component patch version patch version" 
+-key integpatch -desc "Core of Integrations component patch version" 
+-key dapatch -desc "Disk Agent patch version"
+-key mapatch -desc "General Media Agent patch version"
+-key ndmppatch -desc "NDMP Media Agent patch version"
+-key acspatch -desc "ACS Media Agent patch version" 
+-key daspatch -desc "DAS Media Agent patch version" 
+-key fxmapatch -desc "EMC Fastrax Media Agent patch version" 
+-key javaguipatch -desc "Java User Interface patch version" 
+-key snapapatch -desc "HPE Disk Array VA Agent patch version" 
+-key saapatch -desc "HPE Smart Array Agent patch version" 
+-key ccpatch -desc "User Interface patch version"
+-key momguipatch -desc "MoM User Interface patch version"
+-key p10000patch -desc "HPE 3PAR VSS Agent patch version" 
+-key p4000patch -desc "HPE P4000 VSS Agent patch version" 
+-key smisapatch -desc "HPE P6000 / HP 3PAR SMI-S Agent patch version"
+-key netapppatch -desc "NetApp Storage Provider patch version"
+-key emcvnxpatch -desc "EMC VNX Storage Provider patch version"
+-key emcvmaxpatch -desc "EMC VMAX Storage Provider patch version"
+-key sseapatch -desc "HPE P9000 / HP XP Agent patch version"
+-key msexchangepatch -desc "MS Exchange 5.x Integration patch version" 
+-key msesepatch -desc "MS Exchange Integration patch version" 
+-key e2010patch -desc "MS Exchange Server 2010+ Integration patch version"
+-key msmbxpatch -desc "MS Single Mailbox Integration patch version" 
+-key msspspatch -desc "MS SharePoint Portal Server Integration patch version" 
+-key mssharepointpatch -desc "MS SharePoint 2007/2010/2013 Integration patch version"
+-key mssqlpatch -desc "MS SQL 6.5 Integration patch version" 
+-key mssql70patch -desc "MS SQL 7.0/2000 Integration patch version"
+-key vsspatch -desc "MS Volume Shadow Copy Integration patch version"
+-key db2patch -desc "IBM DB2 Integration patch version"
+-key emcpatch -desc "EMC Symmetrix Agent patch version" 
+-key fastraxpatch -desc "EMC Fastrax Resolving Agent patch version" 
+-key saphanapatch -desc "SAP HANA Integration patch version" 
+-key informixpatch -desc "Informix Integration patch version"
+-key lotuspatch -desc "Lotus Integration patch version"
+-key oraclepatch -desc "Oracle7 Integration patch version"
+-key oracle8patch -desc "Oracle Integration patch version" 
+-key mysqlpatch -desc "MySQL Integration patch version"
+-key postgresqlpatch -desc "PostgreSQL Integration patch version"
+-key ovpatch -desc "HPE Network Node Manager Backup Integration patch version"
+-key cluspatch -desc "MS Server Cluster Integration patch version"
+-key opcpatch -desc "VPO Integration patch version"
+-key sapdbpatch -desc "SAP MaxDB Integration patch version"
+-key sappatch -desc "SAP R/3 Integration patch version" 
+-key sybasepatch -desc "Sybase Integration patch version"
+-key vmwarepatch -desc "VMware Integration (Legacy) patch version"
+-key vepapatch -desc "Virtual Environment Integration patch version"
+-key riss_conpatch -desc "RISS Connector"
+-key riss_daxpatch -desc "RISS Disk Agent Extenxion"
+-key autodrpatch -desc "Automatic Disaster Recovery Module patch version" 
+-key dsapatch -desc "Disk Store Agent patch version"
+-key StoreOnceSoftwarepatch -desc "StoreOnce software deduplication patch version" 
+-key exchgrepatch -desc "MS Exchange Granular Recovery Extension patch version"
+-key grmpatch -desc "MS SharePoint Granular Recovery Extension patch version"
+-key vmwaregre_agentpatch -desc "VMware Granular Recovery Extension Agent patch version"
+-key vmwaregre_webpluginpatch -desc "VMware Granular Recovery Extension Web Plug-In patch version"
+-key pegasuspatch -desc "Pegasus Libraries patch version"
+-key vls_ampatch -desc "VLS Automigration patch version"
+-key docspatch -desc "English Documentation (Guides, Help) patch version"
+-key enu_lspatch -desc "English Documentation (Guides, Help) patch version"
+-key fra_lspatch -desc "French Documentation (Guides, Help) patch version"
+-key deu_lspatch -desc "German Documentation (Guides, Help) patch version"
+-key ita_lspatch -desc "Italian Documentation (Guides, Help) patch version" 
+-key jpn_lspatch -desc "Japanese Documentation (Guides, Help) patch version" 
+-key kor_lspatch -desc "Korean Documentation (Guides, Help) patch version" 
+-key rus_lspatch -desc "Russian Documentation (Guides, Help) patch version" 
+-key chs_lspatch -desc "Simplified Chinese Documentation (Guides, Help) patch version" 
+-key esp_lspatch -desc "Spanish Documentation (Guides, Help) patch version" 
+-key ts_corepatch -desc "Core Technology Stack patch version" 
+-key ts_cspatch -desc "Cell Server Technology Stack patch version" 
+-key ts_aspatch -desc "Application Server Technology Stack patch version" 
+-key wspatch -desc "Web Services patch version" 
+-key ts_jrepatch -desc "Java Runtime Environment Technology Stack patch version" 
+-key jce_dispatcherpatch -desc "Job Control Engine Service Dispatcher patch version" 
+-key jce_serviceregistrypatch -desc "Job Control Engine Service Registry patch version" 
+-key cspatch -desc "Cell Server patch version patch version" 
