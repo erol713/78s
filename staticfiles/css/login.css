@@ -14,6 +14,7 @@ a {
   text-decoration: none;
   font-weight: 400;
 }
+
 h1 {
   font-family: "Open Sans";
   font-size: 24px;
@@ -22,6 +23,7 @@ h1 {
   font-weight: 700;
   line-height: 26.4px;
 }
+
 h3 {
   font-family: "Open Sans";
   font-size: 14px;
@@ -30,6 +32,7 @@ h3 {
   font-weight: 700;
   line-height: 15.4px;
 }
+
 p {
   font-family: "Open Sans";
   font-size: 14px;
@@ -38,6 +41,7 @@ p {
   font-weight: 400;
   line-height: 20px;
 }
+
 blockquote {
   font-family: "Open Sans";
   font-size: 21px;
@@ -46,6 +50,7 @@ blockquote {
   font-weight: 400;
   line-height: 30px;
 }
+
 pre {
   font-family: "Open Sans";
   font-size: 13px;
@@ -98,6 +103,27 @@ h2 {
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
+}
+
+#formContent ul {
+  padding-inline-start: 0px !important;
+
+}
+
+#choices {
+  font-size: 16px;
+  color: #333;
+
+}
+
+.selection {
+  font-size: 16px;
+  color: #333;
+  width: 85%;
+  height: 55px;
+  border-color: #f6f6f6;
+  background-color: #f6f6f6;
+  border-radius: 5px 5px 5px 5px;
 }
 
 /* TABS */
@@ -231,6 +257,7 @@ input[type="password"]:placeholder {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
@@ -244,6 +271,7 @@ input[type="password"]:placeholder {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
@@ -256,22 +284,27 @@ input[type="password"]:placeholder {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @-moz-keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -370,7 +403,8 @@ input[type="password"]:placeholder {
   height: auto !important;
   min-height: 100% !important;
   border-radius: 0 !important;
-  background-color: #fff !important; /* Chrome10-25,Safari5.1-6 */
+  background-color: #fff !important;
+  /* Chrome10-25,Safari5.1-6 */
 }
 
 .form-group {
@@ -392,4 +426,8 @@ input[type="password"]:placeholder {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
+}
+
+ul {
+  padding-inline-start: 0 !important;
 }

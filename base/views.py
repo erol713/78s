@@ -10,36 +10,38 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 
 from .models import Account
 from .models import Access
 from .forms import *
 from .filters import *
+from .decorators import unauthenitcated_user, allowed_users, home_pages
 
 
 @login_required(login_url='welcome')
+@home_pages
 def home(request):
 
-    return render(request, 'base/index.html', {})
+    return render(request, 'base/tech/techPanel.html', {})
 
 
+@unauthenitcated_user
 def welcome(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-            else:
-                messages.info(request, 'username or password is incorect')
+        user = authenticate(request, username=username, password=password)
 
-        return render(request, 'base/logIn/welcome.html', )
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'username or password is incorect')
+
+    return render(request, 'base/logIn/welcome.html', )
 
 
 def logoutUser(request):
@@ -48,6 +50,7 @@ def logoutUser(request):
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin'])
 def addUser(request):
 
     userForm = CreateUserForm()
@@ -61,8 +64,15 @@ def addUser(request):
             user = userForm.save(commit=False)
             access = accessForm.save(commit=False)
             access.username = user.username
-            userForm.save()
-            accessForm.save()
+
+            user = userForm.save()
+            access = accessForm.save()
+
+            group = Group.objects.get(name=access.role)
+            user.groups.add(group)
+
+            group = Group.objects.get(name=access.area)
+            user.groups.add(group)
 
             return redirect('tech')
 
@@ -70,6 +80,7 @@ def addUser(request):
     return render(request, 'base/tech/addUser.html', context)
 
 
+@allowed_users(allowed_roles=['admin'])
 def addAccount(request):
     form = AccountForm()
     if request.method == 'POST':
@@ -84,28 +95,35 @@ def addAccount(request):
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin', 'Company'])
 def upload(request):
     return render(request, 'base/uploadData/uploadData.html', {})
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin', 'Company'])
 def uploadDownload(request):
     return render(request, 'base/uploadData/uploadDownload.html', {})
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin'])
 def reportUpload(request):
     return render(request, 'base/tech/reportUpload.html', {})
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin', 'MF'])
 def overview(request):
     accounts = Account.objects.all()
+
+    print(request.user)
 
     return render(request, 'base/MF/overview.html', {'accounts': accounts})
 
 
 @login_required(login_url='welcome')
+@allowed_users(allowed_roles=['admin'])
 def tech(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
@@ -122,6 +140,7 @@ def tech(request):
     return render(request, 'base/tech/techPanel.html', context)
 
 
+@allowed_users(allowed_roles=['admin', 'MF'])
 def listAccounts(request):
     accounts = Account.objects.all()
     return render(request, 'base/listAccounts.html', {'accounts': accounts})

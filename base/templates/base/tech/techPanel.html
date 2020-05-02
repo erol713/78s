@@ -2,6 +2,8 @@
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
   {% endblock %}
+  {% load widget_tweaks %}
+
   <!--
        content
       -->
@@ -61,55 +63,27 @@
 
         <!--END CARDS-->
 
-        <!--CHARTS-->
-
-        <div class="row">
-          <div class="col-xl-6">
-            <div class="card text-center mb-4">
-              <div class="card-header">Add User</div>
-              <div class="card-footer bg-white text-center" style="color: red;">
-                Yes
-              </div>
-              <a class="card-link small" href="{% url 'addUser'  %}">Add User
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-xl-6">
-
-            <div class="card text-center mb-4">
-              <div class="card-header">Add Account</div>
-              <div class="card-footer bg-white text-center" style="color: red;">
-                Yes
-              </div>
-              <a class="card-link small" href="{% url 'addAccount'  %}">Add Account
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl-6">
 
 
-        </div>
-
-
-        <!--END CHARTS-->
+        <!--TABLES-->
         <div class="row">
           <div class="col-xl-6">
             <div class="card mb-4">
               <div class="card-header">
                 <i class="fas fa-table mr-1"></i>List of Users
-                <a style="float: right;" href="{% url 'addUser' %}" type="button">Add User</a>
+                <a style="float: right; color:#fff;" href="{% url 'addUser' %}" type="button" class="addbtn">Add
+                  User</a>
               </div>
             </div>
             <div class="card card-body">
 
               <form method="get">
-                {{myAccessFilter.form}}
-                <button class="btn btn-primary" type="submit">Filter</button>
+                <i style="padding-left: 2px;" class="fas fa-filter"></i>
+                {% for field in myAccessFilter.form %}
+                <span id="nameLabel">{{field.label}}</span>
+                {{field | add_class:"selection"}}
+                {% endfor %}
+                <button class="btn filterbtn" type="submit">Filter</button>
               </form>
 
             </div>
@@ -145,15 +119,19 @@
             <div class="card mb-4">
               <div class="card-header">
                 <i class="fas fa-table mr-1"></i>List of Accounts
-                <a style="float: right;" href="{% url 'addAccount' %}" type="button">Add Account</a>
+                <a style="float: right;" href="{% url 'addAccount' %}" type="button" class="addbtn">Add Account</a>
               </div>
             </div>
-            <div class="card card-body">
+            <div class="card card-body filterTable">
 
               <form method="POST">
+                <i style="padding-left: 2px;" class="fas fa-filter"></i>
                 {% csrf_token %}
-                {{myAccountFilter.form}}
-                <button class="btn btn-primary" type="submit">Filter</button>
+                {% for field in myAccountFilter.form %}
+                <span id="nameLabel">{{field.label}}</span>
+                {{field | add_class:"selection"}}
+                {% endfor %}
+                <button class="btn filterbtn" type="submit">Filter</button>
               </form>
 
             </div>

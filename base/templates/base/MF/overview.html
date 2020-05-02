@@ -4,7 +4,7 @@
 
 
   {% endblock %}
-
+  {% load groupFilter %}
   <!--
        content
       -->
@@ -146,7 +146,11 @@
                     <th></th>
 
                   </tr>
+
+                  {% if request.user|has_group:"EMEA" %}
                   {% for account in accounts %}
+                  {% if account.area == 'EMEA' %}
+
                   <tr>
                     <td></td>
                     <td>{{account.name}}</td>
@@ -157,7 +161,26 @@
                     <td><a type="button">Download</td>
 
                   </tr>
+                  {% endif %}
                   {% endfor %}
+                  {% elif request.user|has_group:"Americas"  %}
+                  {% for account in accounts %}
+                  {% if account.area == 'Americas' %}
+
+                  <tr>
+                    <td></td>
+                    <td>{{account.name}}</td>
+                    <td>{{account.dateUploaded}}</td>
+                    <td>{{account.code}}</td>
+                    <td>{{account.status}}</td>
+                    <td>{{account.area}}</td>
+                    <td><a type="button">Download</td>
+
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+
 
                 </table>
               </div>
