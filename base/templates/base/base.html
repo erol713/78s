@@ -1,4 +1,6 @@
 {% load static %}
+{% load groupFilter %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +65,11 @@
                 Navbar potential form-->
 
     <!-- Navbar-->
+    {% if request.user|has_group:"EMEA" %}
+
+    <img class="logo-mf navbar-nav d-md-inline-block form-inline ml-auto mr-0" src="{% static '/images/mf.png' %}" />
+
+    {% endif %}
 
     <span class="navbar-nav d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">Hello, {{request.user}}
     </span>

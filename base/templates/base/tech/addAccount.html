@@ -6,20 +6,35 @@
         <div class="fadeIn first">
             <img class="logo-78s" src="{% static '/images/78s.png' %}" />
         </div>
+        <div class="row">
+            <form method="POST" action="" class="col-xl-6">
+                {% csrf_token %}
+                <ul>{{ form.name }}</ul>
+                <ul>{{ form.code }}</ul>
+                <ul id="choices">{{ form.status.label }}</ul>
+                <ul>{{ form.status | add_class:"selection" }}</ul>
+                <ul id="choices">{{ form.area.label }}</ul>
+                <ul>{{ form.area | add_class:"selection" }}</ul>
 
-        <form method="POST" action="">
-            {% csrf_token %}
-            <ul>{{ form.name }}</ul>
-            <ul>{{ form.code }}</ul>
-            <ul id="choices">{{ form.status.label }}</ul>
-            <ul>{{ form.status | add_class:"selection" }}</ul>
-            <ul id="choices">{{ form.area.label }}</ul>
-            <ul>{{ form.area | add_class:"selection" }}</ul>
 
+                {{form.errors}}
+                <input type="submit" class="fadeIn fourth" name="addAccount" value="Add account" />
+            </form>
+            <div class="upload col-xl-6">
+                <form class="box has-advanced-upload" method="post" action="" enctype="multipart/form-data">
+                    <div class="box__input">
+                        <input class="box__file" type="file" name="files[]" id="file"
+                            data-multiple-caption="{count} files selected" multiple />
 
-            {{form.errors}}
-            <input type="submit" class="fadeIn fourth" name="addAccount" value="Add account" />
-        </form>
+                        <button class="box__button" type="submit">Upload</button>
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
 <script>

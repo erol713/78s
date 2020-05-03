@@ -21,9 +21,10 @@
               -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
               -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
               box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
-              text-align: center!important;
+              text-align: center!important; text-transform: uppercase;
               " class="mx-auto col-xl-4 mb-4 col-md-6">
-            {latest.accounts.name}
+            {{ accounts.last.name }}
+
 
         </h1>
 
@@ -75,8 +76,10 @@
         <div class="details">
           <section class="row">
             <div class=" col-xl-6">
-              <div class="card-header-tab">
-                <i class="fas fa-chart-bar mr-1"></i>Deployment information
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-chart-bar mr-1"></i>Analysis information
+                </div>
               </div>
               <ul class=" lists nav nav-tabs">
                 <li class="nav-item">
@@ -86,7 +89,7 @@
                   <a class="nav-link tab-link" href="#not-deployed">Not deployed</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link tab-link" href="analysed">Analysed</a>
+                  <a class="nav-link tab-link" href="#analysed">Analysed</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link tab-link" href="#missing-data">Missing data</a>
@@ -94,34 +97,34 @@
               </ul>
 
               <ul id="scope" class="list-group list-group-flush active-list">
-                <li class="list-group-item">Scope</li>
-                <li class="list-group-item">Scope</li>
-                <li class="list-group-item">Scope</li>
-                <li class="list-group-item">Scope</li>
-                <li class="list-group-item">Scope</li>
+                <li class="list-group-item"><a href="#">Scope</a></li>
+                <li class="list-group-item"><a href="#">Scope</a></li>
+                <li class="list-group-item"><a href="#">Scope</a></li>
+                <li class="list-group-item"><a href="#">Scope</a></li>
+                <li class="list-group-item"><a href="#">Scope</a></li>
               </ul>
 
               <ul id="not-deployed" class="list-group list-group-flush inactive">
-                <li class="list-group-item">ndep</li>
-                <li class="list-group-item">ndep</li>
-                <li class="list-group-item">ndep</li>
-                <li class="list-group-item">ndep</li>
-                <li class="list-group-item">ndep</li>
+                <li class="list-group-item"><a href="#">ndep</a></li>
+                <li class="list-group-item"><a href="#">ndep</a></li>
+                <li class="list-group-item"><a href="#">ndep</a></li>
+                <li class="list-group-item"><a href="#">ndep</a></li>
+                <li class="list-group-item"><a href="#">ndep</a></li>
               </ul>
               <ul id="analysed" class="list-group list-group-flush inactive">
-                <li class="list-group-item">analysed</li>
-                <li class="list-group-item">analysed</li>
-                <li class="list-group-item">analysed</li>
-                <li class="list-group-item">analysed</li>
-                <li class="list-group-item">analysed</li>
+                <li class="list-group-item"><a href="#">analysed</a></li>
+                <li class="list-group-item"><a href="#">analysed</a></li>
+                <li class="list-group-item"><a href="#">analysed</a></li>
+                <li class="list-group-item"><a href="#">analysed</a></li>
+                <li class="list-group-item"><a href="#">analysed</a></li>
               </ul>
 
               <ul id="missing-data" class="list-group list-group-flush inactive">
-                <li class="list-group-item">Missing</li>
-                <li class="list-group-item">Missing</li>
-                <li class="list-group-item">Missing</li>
-                <li class="list-group-item">Missing</li>
-                <li class="list-group-item">Missing</li>
+                <li class="list-group-item"><a href="#">Missing</a></li>
+                <li class="list-group-item"><a href="#">Missing</a></li>
+                <li class="list-group-item"><a href="#">Missing</a></li>
+                <li class="list-group-item"><a href="#">Missing</a></li>
+                <li class="list-group-item"><a href="#">Missing</a></li>
               </ul>
             </div>
 
@@ -130,7 +133,7 @@
               <div class="card mb-4">
                 <div class="card-header">
                   <i class="fas fa-table mr-1"></i>List of Accounts
-                  <a style="float: right;" href="{% url 'addAccount' %}" type="button">Add Account</a>
+                  <a style="float: right;" href="{% url 'listAccounts' %}" type="button">Wiew All Accounts</a>
                 </div>
               </div>
 
@@ -147,9 +150,7 @@
 
                   </tr>
 
-                  {% if request.user|has_group:"EMEA" %}
                   {% for account in accounts %}
-                  {% if account.area == 'EMEA' %}
 
                   <tr>
                     <td></td>
@@ -161,25 +162,10 @@
                     <td><a type="button">Download</td>
 
                   </tr>
-                  {% endif %}
                   {% endfor %}
-                  {% elif request.user|has_group:"Americas"  %}
-                  {% for account in accounts %}
-                  {% if account.area == 'Americas' %}
-
-                  <tr>
-                    <td></td>
-                    <td>{{account.name}}</td>
-                    <td>{{account.dateUploaded}}</td>
-                    <td>{{account.code}}</td>
-                    <td>{{account.status}}</td>
-                    <td>{{account.area}}</td>
-                    <td><a type="button">Download</td>
-
-                  </tr>
-                  {% endif %}
-                  {% endfor %}
-                  {% endif %}
+                  
+                  
+                  
 
 
                 </table>

@@ -146,9 +146,13 @@ def reportUpload(request):
 @login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'MF'])
 def overview(request):
-    accounts = Account.objects.all()
-
-    print(request.user)
+    groups = request.user.groups.values_list('name', flat=True)
+    if 'EMEA' in groups:
+        accounts = Account.objects.filter(area="EMEA")
+    elif 'Americas' in groups:
+        accounts = Account.objects.filter(area="Americas")
+    else:
+        accounts = Account.objects.all()
 
     return render(request, 'base/MF/overview.html', {'accounts': accounts})
 
@@ -173,8 +177,19 @@ def tech(request):
 
 @allowed_users(allowed_roles=['admin', 'MF'])
 def listAccounts(request):
-    accounts = Account.objects.all()
-    return render(request, 'base/listAccounts.html', {'accounts': accounts})
+
+    groups = request.user.groups.values_list('name', flat=True)
+    if 'EMEA' in groups:
+        accounts = Account.objects.filter(area="EMEA")
+    elif 'Americas' in groups:
+        accounts = Account.objects.filter(area="Americas")
+    else:
+        accounts = Account.objects.all()
+
+    myAccountFilter = AccountFilter(request.POST, queryset=accounts)
+    accounts = myAccountFilter.qs
+
+    return render(request, 'base/listAccounts.html', {'accounts': accounts, 'myAccountFilter': myAccountFilter})
 
 
 def test(request):
