@@ -17,13 +17,25 @@ from .models import Access
 from .forms import *
 from .filters import *
 from .decorators import unauthenitcated_user, allowed_users, home_pages
+from django.template.loader import render_to_string, get_template
 
 
 @login_required(login_url='welcome')
 @home_pages
 def home(request):
+    accounts = Account.objects.all()
+    users = Access.objects.all()
 
-    return render(request, 'base/tech/techPanel.html', {})
+    myAccessFilter = AccessFilter(request.GET, queryset=users)
+    users = myAccessFilter.qs
+
+    myAccountFilter = AccountFilter(request.POST, queryset=accounts)
+    accounts = myAccountFilter.qs
+
+    context = {'accounts': accounts, 'users': users,
+               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter}
+
+    return render(request, 'base/tech/techPanel.html', context)
 
 
 @unauthenitcated_user
@@ -78,6 +90,25 @@ def addUser(request):
 
     context = {'userForm': userForm, 'accessForm': accessForm}
     return render(request, 'base/tech/addUser.html', context)
+
+
+def deleteUser(request, pk):
+    data = dict()
+    user = Access.objects.get(id=pk)
+    u = User.objects.get(username=user.username)
+    if request.method == "POST":
+        user.delete()
+        u.delete()
+        data['form_is_valid'] = True
+        access = Access.objects.all()
+        data['tech'] = render_to_string(
+            'base/tech/usersList.html', {'access': access})
+    else:
+        context = {'item': user}
+        data['html_form'] = render_to_string(
+            'base/tech/deleteModal.html', context, request=request)
+
+    return JsonResponse(data)
 
 
 @allowed_users(allowed_roles=['admin'])

@@ -1,39 +1,20 @@
 {% load static %}
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <button id="button" type="GET"></button>
 
-    <script>
-      $("document").ready(function () {
-        $.get("dpw", function (data) {
-          for (var key in data) {
-            var instl = [];
-            var used = [];
-            var lic = [];
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
 
-            for (var k in data[key][0]) {
-              instl.push(parseInt(data[key][0][k]));
-            }
-            for (var k in data[key][1]) {
-              used.push(parseInt(data[key][1][k]));
-            }
-            for (var k in data[key][2]) {
-              lic.push(data[key][2][k]);
-            }
-            console.log(JSON.st(lic));
-          }
-        });
-      });
-    </script>
-  </body>
+<body>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+</body>
+
 </html>

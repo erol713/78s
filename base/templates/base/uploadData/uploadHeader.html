@@ -31,6 +31,16 @@
 </head>
 
 <body>
+  <ul class="navbar-nav d-md-inline-block" style="float: right; margin-right: 20px;">
+    <li class=" nav-item dropleft">
+      <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown"
+        style="position: absolute; top:100%;">
+        <a class=" dropdown-item" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </li>
+  </ul>
   {% block content %} {% endblock %}
 </body>
 

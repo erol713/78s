@@ -194,6 +194,15 @@ pre {
 }
 
 .dropdown-menu-right {
+  position: absolute;
   right: 0 !important;
   left: auto !important;
+}
+
+.dropleft .dropdown-menu {
+  top: 10px;
+}
+
+.navbar-nav .dropdown-menu {
+  position: absolute;
 }

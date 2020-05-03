@@ -153,3 +153,47 @@
   padding: 3px 10px;
 
 }
+
+.deleteBtns .del {
+  background-color: #fff;
+  border: 2px solid red;
+  color: red;
+}
+
+.deleteBtns .del:hover {
+  background-color: red;
+  border: 2px solid red;
+  color: #fff !important;
+}
+
+.deleteBtns .exit {
+  background-color: #fff;
+  border: 2px solid #2cacc9;
+  color: #008aad;
+}
+
+.deleteBtns .exit:hover {
+  background-color: #008aad;
+  border: 1px solid #2cacc9;
+  color: #fff !important;
+}
+
+.delete-form {
+  text-align: center !important;
+}
+
+.show-form-delete {
+  background-color: #fff;
+  border: 2px solid red;
+  color: red;
+  float: right;
+  margin-right: 3px;
+}
+
+.show-form-delete:hover {
+  background-color: red;
+  border: 2px solid red;
+  color: #fff !important;
+  float: right;
+  margin-right: 3px;
+}

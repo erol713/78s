@@ -14,6 +14,8 @@ urlpatterns = [
     path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),
     path('reportUpload', views.reportUpload, name='reportUpload'),
+    path('tech/deleteUser/<str:pk>/', views.deleteUser, name='deleteUser'),
+
 
     path('dp', views.dp),
     path('dpw', views.dpw)

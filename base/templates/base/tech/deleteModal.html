@@ -1,0 +1,22 @@
+{% load crispy_forms_tags %}
+<form method="POST" data-url="{% url 'deleteUser' item.id  %}" class="delete-form">
+    {% csrf_token %}
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-header">
+        <h4 class="modal-title">Delete User</h4>
+
+
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to delete <strong> "{{item.username}}" </strong>?</p>
+
+        <div class="deleteBtns">
+            <button type="button" class="btn exit" data-dismiss="modal">Close</button>
+
+
+            <button type="submit" class="btn del ">Delete user</button>
+        </div>
+    </div>
+</form>

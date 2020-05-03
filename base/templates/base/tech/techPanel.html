@@ -2,11 +2,13 @@
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
   {% endblock %}
+  {% load static %}
   {% load widget_tweaks %}
 
   <!--
        content
       -->
+
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid">
@@ -88,7 +90,7 @@
 
             </div>
             <div class="card card-body">
-              <table class="table table-sm">
+              <table id="userTable" class="table table-sm">
                 <tr>
                   <th></th>
                   <th>Username</th>
@@ -98,18 +100,9 @@
                   <th></th>
 
                 </tr>
-                {% for user in users %}
-                <tr>
-                  <td></td>
-                  <td>{{user.username}}</td>
-                  <td>{{user.date}}</td>
-                  <td>{{user.role}}</td>
-                  <td>{{user.area}}</td>
-                  <td><a type="button">Delete</td>
-
-                </tr>
-                {% endfor %}
-
+                <tbody>
+                  {% include "base/tech/usersList.html" %}
+                </tbody>
               </table>
             </div>
           </div>
@@ -147,19 +140,20 @@
                   <th></th>
 
                 </tr>
-                {% for account in accounts %}
-                <tr>
-                  <td></td>
-                  <td>{{account.name}}</td>
-                  <td>{{account.dateUploaded}}</td>
-                  <td>{{account.code}}</td>
-                  <td>{{account.status}}</td>
-                  <td>{{account.area}}</td>
-                  <td><a type="button">Download</td>
+                <tbody>
+                  {% for account in accounts %}
+                  <tr>
+                    <td></td>
+                    <td>{{account.name}}</td>
+                    <td>{{account.dateUploaded}}</td>
+                    <td>{{account.code}}</td>
+                    <td>{{account.status}}</td>
+                    <td>{{account.area}}</td>
+                    <td><a type="button">Download</td>
 
-                </tr>
-                {% endfor %}
-
+                  </tr>
+                  {% endfor %}
+                </tbody>
               </table>
             </div>
           </div>
@@ -182,6 +176,13 @@
   <!--
       Modals
     -->
+  <div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+
+
 
   {% endblock %}
 </body>

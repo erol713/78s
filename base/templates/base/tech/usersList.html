@@ -1,0 +1,14 @@
+{% for user in users %}
+<tr>
+    <td></td>
+    <td>{{user.username}}</td>
+    <td>{{user.date}}</td>
+    <td>{{user.role}}</td>
+    <td>{{user.area}}</td>
+    <td>
+        <button class="show-form-delete" data-url="{% url 'deleteUser' user.id %}">Delete
+        </button>
+    </td>
+
+</tr>
+{% endfor %}
