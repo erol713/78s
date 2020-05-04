@@ -24,7 +24,7 @@ class Access(models.Model):
     area = models.CharField(max_length=10, null=True, choices=AREAS)
 
     def __str__(self):
-        return self.role
+        return self.username
 
 
 class Account(models.Model):

@@ -121,15 +121,9 @@
                 <i style="padding-left: 2px;" class="fas fa-filter"></i>
                 {% csrf_token %}
 
-                <span id="nameLabel">{{myAccountFilter.form.name.label}}</span>
-                {{myAccountFilter.form.name  | add_class:"selection"}}
+                <span id="nameLabel">{{myAccountFilter.form}}</span>
 
 
-                <span id="nameLabel">{{myAccountFilter.form.area.label}}</span>
-                {{myAccountFilter.form.area  | add_class:"selection"}}
-
-                <span id="nameLabel">{{myAccountFilter.form.status.label}}</span>
-                {{myAccountFilter.form.status  | add_class:"selection"}}
 
                 <button class="btn filterbtn" type="submit">Filter</button>
               </form>

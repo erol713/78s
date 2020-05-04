@@ -114,6 +114,7 @@ def deleteUser(request, pk):
 @allowed_users(allowed_roles=['admin'])
 def addAccount(request):
     form = AccountForm()
+    form.fields["username"].queryset = Access.objects.filter(role='MF')
     if request.method == 'POST':
         print(request.POST)
         form = AccountForm(request.POST)
@@ -193,7 +194,18 @@ def listAccounts(request):
 
 
 def test(request):
-    return render(request, 'base/test.html', {})
+    accounts = Account.objects.all()
+    users = Access.objects.all()
+
+    myAccessFilter = AccessFilter(request.GET, queryset=users)
+    users = myAccessFilter.qs
+
+    myAccountFilter = AccountFilter(request.POST, queryset=accounts)
+    accounts = myAccountFilter.qs
+
+    context = {'accounts': accounts, 'users': users,
+               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter}
+    return render(request, 'base/test.html', context)
 
 
 def dp(request):
