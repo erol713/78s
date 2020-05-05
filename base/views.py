@@ -148,10 +148,9 @@ def reportUpload(request):
 @allowed_users(allowed_roles=['admin', 'MF'])
 def overview(request):
     groups = request.user.groups.values_list('name', flat=True)
-    if 'EMEA' in groups:
-        accounts = Account.objects.filter(area="EMEA")
-    elif 'Americas' in groups:
-        accounts = Account.objects.filter(area="Americas")
+    if 'MF' in groups:
+        accounts = Account.objects.filter(
+            username__username__contains=request.user)
     else:
         accounts = Account.objects.all()
 
@@ -180,10 +179,10 @@ def tech(request):
 def listAccounts(request):
 
     groups = request.user.groups.values_list('name', flat=True)
-    if 'EMEA' in groups:
-        accounts = Account.objects.filter(area="EMEA")
-    elif 'Americas' in groups:
-        accounts = Account.objects.filter(area="Americas")
+
+    if 'MF' in groups:
+        accounts = Account.objects.filter(
+            username__username__contains=request.user)
     else:
         accounts = Account.objects.all()
 
