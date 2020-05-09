@@ -2,23 +2,38 @@
 {% load widget_tweaks %}
 
 <div class="wrapper fadeInDown">
-    <div id="formContent">
+    <div id="formContent" style="max-width: 1000px !important;">
         <div class="fadeIn first">
             <img class="logo-78s" src="{% static '/images/78s.png' %}" />
         </div>
+        <form method="POST" action="" enctype="multipart/form-data" class="row">
 
-        <form method="POST" action="">
-            {% csrf_token %}
-            {% for field in userForm %}
-            <ul>{{field}}</ul>
-            {% endfor %}
-            {% for field in accessForm %}
-            <ul id="choices">{{field.label}}</ul>
-            <ul>{{field | add_class:"selection"}}</ul>
-            {% endfor %}
+            <div class="col-xl-6">
+                {% csrf_token %}
+                {% for field in userForm %}
+                <ul>{{field}}</ul>
+                {% endfor %}
+                <ul id="choices">{{accessForm.role.label}}</ul>
+                <ul>{{accessForm.role | add_class:"selection"}}</ul>
+                <ul id="choices">{{accessForm.area.label}}</ul>
+                <ul>{{accessForm.area | add_class:"selection"}}</ul>
+            </div>
 
+
+
+            <div id="show" class="upload col-xl-6">
+                <div class="box has-advanced-upload">
+                    <div class="box__input">
+                        <h3>Please Upload Data Collection</h3>
+                        {{accessForm.dataCollection}}
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </div>
+            </div>
             {{userForm.errors}}
-            <input type="submit" class="fadeIn fourth" name="addUser" value="Add user" />
+            <input type="submit" class="mx-auto fadeIn fourth" name="addUser" value="Add user" />
         </form>
     </div>
 </div>
@@ -28,5 +43,16 @@
     form_fields[1].placeholder = "Username...";
     form_fields[2].placeholder = "Enter password...";
     form_fields[3].placeholder = "Re-enter password...";
+
+
+
+    $(function () {
+        $('#choices').change(function () {
+            var opt = $(this).val();
+            if (opt == 'Company') {
+                $('#downloadbtn').show();
+            }
+        });
+    });
 </script>
 {% endblock %}

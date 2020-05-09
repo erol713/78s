@@ -70,7 +70,7 @@ def addUser(request):
 
     if request.method == 'POST':
         userForm = CreateUserForm(request.POST)
-        accessForm = AccessForm(request.POST)
+        accessForm = AccessForm(request.POST, request.FILES)
 
         if userForm.is_valid() and accessForm.is_valid():
             user = userForm.save(commit=False)
@@ -117,7 +117,7 @@ def addAccount(request):
     form.fields["username"].queryset = Access.objects.filter(role='MF')
     if request.method == 'POST':
         print(request.POST)
-        form = AccountForm(request.POST)
+        form = AccountForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('tech')
@@ -129,13 +129,31 @@ def addAccount(request):
 @login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'Company'])
 def upload(request):
-    return render(request, 'base/uploadData/uploadData.html', {})
+    access = Access.objects.get(username=request.user)
+    print(access.filledDataCollection)
+
+    form = filledDataCollection()
+
+    if request.method == 'POST':
+        form = filledDataCollection(
+            request.POST, request.FILES, instance=Access.objects.get(username=request.user))
+
+        if form.is_valid():
+            form.save()
+            return redirect('uploadDownload')
+
+    context = {'form': form}
+    return render(request, 'base/uploadData/uploadData.html', context)
 
 
 @login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'Company'])
 def uploadDownload(request):
-    return render(request, 'base/uploadData/uploadDownload.html', {})
+
+    users = Access.objects.all()
+
+    context = {'users': users}
+    return render(request, 'base/uploadData/uploadDownload.html', context)
 
 
 @login_required(login_url='welcome')

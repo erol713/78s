@@ -22,6 +22,8 @@ class Access(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     role = models.CharField(max_length=10, null=True, choices=ROLES)
     area = models.CharField(max_length=10, null=True, choices=AREAS)
+    dataCollection = models.FileField(null=True, blank=True)
+    filledDataCollection = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return self.username
@@ -48,9 +50,7 @@ class Account(models.Model):
     dateUploaded = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=30, null=True, choices=STATUS)
     area = models.CharField(max_length=10, choices=AREAS)
-
-    # dataCollection
-    # finalPack
+    finalPack = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return self.name

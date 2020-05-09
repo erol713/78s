@@ -22,3 +22,9 @@ class AccessForm(ModelForm):
         model = Access
         fields = '__all__'
         exclude = ['user', 'username', ]
+
+
+class filledDataCollection(ModelForm):
+    class Meta:
+        model = Access
+        fields = ['filledDataCollection']

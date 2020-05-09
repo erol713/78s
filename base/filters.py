@@ -7,11 +7,11 @@ class AccountFilter(django_filters.FilterSet):
     class Meta:
         model = Account
         fields = '__all__'
-        exclude = ['username']
+        exclude = ['username', 'finalPack']
 
 
 class AccessFilter(django_filters.FilterSet):
     class Meta:
         model = Access
         fields = '__all__'
-        exclude = ['date']
+        exclude = ['date', 'dataCollection', 'filledDataCollection']
