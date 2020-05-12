@@ -26,6 +26,11 @@ def home(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
 
+    total_accounts = accounts.count()
+
+    delivered = accounts.filter(status='Final Pack Uploaded').count()
+    analysis = accounts.filter(status='Analysis').count()
+
     myAccessFilter = AccessFilter(request.GET, queryset=users)
     users = myAccessFilter.qs
 
@@ -33,7 +38,8 @@ def home(request):
     accounts = myAccountFilter.qs
 
     context = {'accounts': accounts, 'users': users,
-               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter}
+               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter,
+               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis}
 
     return render(request, 'base/tech/techPanel.html', context)
 
@@ -181,6 +187,11 @@ def tech(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
 
+    total_accounts = accounts.count()
+
+    delivered = accounts.filter(status='Final Pack Uploaded').count()
+    analysis = accounts.filter(status='Analysis').count()
+
     myAccessFilter = AccessFilter(request.GET, queryset=users)
     users = myAccessFilter.qs
 
@@ -188,7 +199,8 @@ def tech(request):
     accounts = myAccountFilter.qs
 
     context = {'accounts': accounts, 'users': users,
-               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter}
+               'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter,
+               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis}
 
     return render(request, 'base/tech/techPanel.html', context)
 
