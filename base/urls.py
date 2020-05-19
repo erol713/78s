@@ -15,7 +15,7 @@ urlpatterns = [
     path('addUser', views.addUser, name='addUser'),
     path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),
-    path('reportUpload', views.reportUpload, name='reportUpload'),
+    path('addAccount/Details', views.addAccount2, name='addAccount2'),
     path('tech/deleteUser/<str:pk>/', views.deleteUser, name='deleteUser'),
 
 

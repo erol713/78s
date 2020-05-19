@@ -14,7 +14,7 @@ class CreateUserForm(UserCreationForm):
 class AccountForm(ModelForm):
     class Meta:
         model = Account
-        fields = '__all__'  # you can put your own model forms here one by one
+        fields = '__all__'
 
 
 class AccessForm(ModelForm):

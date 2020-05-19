@@ -25,7 +25,6 @@ from django.template.loader import render_to_string, get_template
 def home(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
-
     total_accounts = accounts.count()
 
     delivered = accounts.filter(status='Final Pack Uploaded').count()
@@ -122,14 +121,30 @@ def addAccount(request):
     form = AccountForm()
     form.fields["username"].queryset = Access.objects.filter(role='MF')
     if request.method == 'POST':
-        print(request.POST)
         form = AccountForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addAccount2')
+
+    context = {'form': form}
+    return render(request, 'base/tech/addAccount.html', context)
+
+
+@allowed_users(allowed_roles=['admin'])
+def addAccount2(request):
+    account = Account.objects.latest('dateUploaded')
+    form = AccountForm()
+    form.fields["username"].queryset = Access.objects.filter(role='MF')
+    print(account)
+    if request.method == 'POST':
+        form = AccountForm(request.POST, request.FILES,
+                           instance=Account.objects.get(name=account))
         if form.is_valid():
             form.save()
             return redirect('tech')
 
     context = {'form': form}
-    return render(request, 'base/tech/addAccount.html', context)
+    return render(request, 'base/tech/addAccount2.html', context)
 
 
 @login_required(login_url='welcome')
@@ -163,12 +178,6 @@ def uploadDownload(request):
 
 
 @login_required(login_url='welcome')
-@allowed_users(allowed_roles=['admin'])
-def reportUpload(request):
-    return render(request, 'base/tech/reportUpload.html', {})
-
-
-@login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'MF'])
 def overview(request):
     groups = request.user.groups.values_list('name', flat=True)
@@ -186,6 +195,7 @@ def overview(request):
 def tech(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
+    print(accounts[0].finalPack)
 
     total_accounts = accounts.count()
 
