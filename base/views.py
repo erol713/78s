@@ -124,7 +124,7 @@ def addAccount(request):
         form = AccountForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('addAccount2')
+            return redirect('tech')
 
     context = {'form': form}
     return render(request, 'base/tech/addAccount.html', context)
@@ -150,21 +150,8 @@ def addAccount2(request):
 @login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'Company'])
 def upload(request):
-    access = Access.objects.get(username=request.user)
-    print(access.filledDataCollection)
 
-    form = filledDataCollection()
-
-    if request.method == 'POST':
-        form = filledDataCollection(
-            request.POST, request.FILES, instance=Access.objects.get(username=request.user))
-
-        if form.is_valid():
-            form.save()
-            return redirect('uploadDownload')
-
-    context = {'form': form}
-    return render(request, 'base/uploadData/uploadData.html', context)
+    return render(request, 'base/uploadData/uploadData.html', )
 
 
 @login_required(login_url='welcome')

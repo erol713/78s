@@ -68,7 +68,7 @@
 
         <!--END CARDS-->
         <div class="ButtonWrapper">
-          <a type="button" data-toggle="modal" data-target="#LVQupload" class="DownloadBtn btn">DOWNLOAD FINAL PACK</a>
+          <a type="button" data-toggle="modal" data-target="#Download" class="DownloadBtn btn">DOWNLOAD FINAL PACK</a>
         </div>
 
         <!-- LIST-->
@@ -97,34 +97,34 @@
               </ul>
 
               <ul id="scope" class="list-group list-group-flush active-list">
-                <li class="list-group-item"><a href="#">Scope</a></li>
-                <li class="list-group-item"><a href="#">Scope</a></li>
-                <li class="list-group-item"><a href="#">Scope</a></li>
-                <li class="list-group-item"><a href="#">Scope</a></li>
-                <li class="list-group-item"><a href="#">Scope</a></li>
+                <li class="list-group-item"><a href="#">ArcSight</a></li>
+                <li class="list-group-item"><a href="#">Data Protector</a></li>
+                <li class="list-group-item"><a href="#">Network Node Manager</a></li>
+                <li class="list-group-item"><a href="#">Operations Manager</a></li>
+                <li class="list-group-item"><a href="#">Sitescope</a></li>
+                <li class="list-group-item"><a href="#">Operations Orchestration</a></li>
+                <li class="list-group-item"><a href="#">Functional Testing</a></li>
+                <li class="list-group-item"><a href="#">Quality Center</a></li>
+                <li class="list-group-item"><a href="#">Universal Discovery</a></li>
               </ul>
 
               <ul id="not-deployed" class="list-group list-group-flush inactive">
-                <li class="list-group-item"><a href="#">ndep</a></li>
-                <li class="list-group-item"><a href="#">ndep</a></li>
-                <li class="list-group-item"><a href="#">ndep</a></li>
-                <li class="list-group-item"><a href="#">ndep</a></li>
-                <li class="list-group-item"><a href="#">ndep</a></li>
+                <li class="list-group-item"><a href="#">ArcSight</a></li>
               </ul>
               <ul id="analysed" class="list-group list-group-flush inactive">
-                <li class="list-group-item"><a href="#">analysed</a></li>
-                <li class="list-group-item"><a href="#">analysed</a></li>
-                <li class="list-group-item"><a href="#">analysed</a></li>
-                <li class="list-group-item"><a href="#">analysed</a></li>
-                <li class="list-group-item"><a href="#">analysed</a></li>
+                <li class="list-group-item"><a href="#">Data Protector</a></li>
+                <li class="list-group-item"><a href="#">Network Node Manager</a></li>
+                <li class="list-group-item"><a href="#">Operations Manager</a></li>
+                <li class="list-group-item"><a href="#">Sitescope</a></li>
+                <li class="list-group-item"><a href="#">Operations Orchestration</a></li>
+                <li class="list-group-item"><a href="#">Functional Testing</a></li>
+                <li class="list-group-item"><a href="#">Quality Center</a></li>
+                <li class="list-group-item"><a href="#">Universal Discovery</a></li>
               </ul>
 
               <ul id="missing-data" class="list-group list-group-flush inactive">
-                <li class="list-group-item"><a href="#">Missing</a></li>
-                <li class="list-group-item"><a href="#">Missing</a></li>
-                <li class="list-group-item"><a href="#">Missing</a></li>
-                <li class="list-group-item"><a href="#">Missing</a></li>
-                <li class="list-group-item"><a href="#">Missing</a></li>
+                <li class="list-group-item"><a href="#">Functional Testing</a></li>
+
               </ul>
             </div>
 
@@ -198,6 +198,12 @@
       </div>
     </footer>
   </div>
+
+
+
+  <!-- Modal -->
+  {% include "base/uploadData/download.html" %}
+
 
   <script>
     $(function () {

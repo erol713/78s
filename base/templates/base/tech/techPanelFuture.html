@@ -1,127 +1,156 @@
-{% extends 'base/tech/techSidenav.html' %} {% block content %} {%block body %}
+{% extends 'base/navbars/sidenav.html' %} {% block content %}{%block body %}
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
+
+
   {% endblock %}
+  {% load groupFilter %}
   <!--
        content
       -->
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid">
-        <h1 class="mt-4"></h1>
 
-        <!--CARDS-->
 
-        <div class="row">
-          <div class="col-xl-3 col-md-6">
-            <div class="card text-center mb-4">
-              <div class="card-header">LVQ submited</div>
-              <div class="card-footer bg-white text-center">
-                <i class="fas fa-check" style="color: #82c921;"></i>
-              </div>
-              <a class="card-link small" href="#">View Details
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <div class="card text-center mb-4">
-              <div class="card-header">Outputs submited</div>
-              <div class="card-footer bg-white text-center">
-                <i class="fas fa-check" style="color: #82c921;"></i>
-              </div>
-              <a class="card-link small" href="#">View Details
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <div class="card text-center mb-4">
-              <div class="card-header">Screenshots submited</div>
-              <div class="card-footer missing bg-white text-center">
-                <i class="fa fa-times"></i>
-              </div>
-              <a class="card-link small" href="#">View Details
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <div class="card text-center mb-4">
-              <div class="card-header">Missing data</div>
-              <div class="card-footer bg-white text-center" style="color: red;">
-                Yes
-              </div>
-              <a class="card-link small" href="#">View Details
-                <i class="fas fa-angle-right"></i>
-              </a>
-            </div>
+        <div class="ButtonWrapper" style="margin: 100px; 0">
+          <div>
+            <input type="text" placeholder="Search accounts.."><button type="submit"><i
+                class="fa fa-search"></i></button>
+
           </div>
         </div>
 
-        <!--END CARDS-->
+        <!-- LIST-->
 
-        <!--CHARTS-->
+        <div class="details show">
+          <section class="row">
+            <div class=" col-xl-6">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-table mr-1"></i>Latest Final Pack Uploaded
 
-        <div class="row">
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fa fa-map-marker mr-1"></i>Deployment location
-            </div>
+                </div>
+              </div>
+              <div class="row">
+                <h1 class=" col-xl-6 mt-4">
+                  <div style="
+                    font-size: larger;
+                    font-weight: bold;
+                    border-bottom: 1px solid #2cacc9;
+                    margin-bottom: 50px;
+                    color:#008aad;
+                    -webkit-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+                    -moz-box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+                    box-shadow: 0 10px 6px -6px rgba(0, 138, 173, 0.3);
+                    text-align: center!important; text-transform: uppercase;
+                    " class="mx-auto ">
+                    {{ accounts.last.name }}
 
-            <div class="card mb-4">
-              <!--graph-->
-              <div class="card-body">
-                <div class="chart-container" id="locationChart"></div>
+
+                </h1>
+                <div class="ButtonWrapper col-xl-6 style=" float: left;">
+                  <a type="button" data-toggle="modal" data-target="#LVQupload" class="DownloadBtn btn">DOWNLOAD FINAL
+                    PACK</a>
+                </div>
+
+
+              </div>
+              <!--CARDS-->
+
+              <div class="row">
+                <!--INSTANCES-->
+                <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link nav-link" href="#scope">
+                  <h1 class="display-2">9</h1>
+                  <hr class="my-4" />
+                  <p class="lead">
+                    Products in Scope
+                  </p>
+                </div>
+
+                <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#not-deployed">
+                  <h1 class="display-1">1</h1>
+                  <hr class="my-4" />
+                  <p class="lead">
+                    Products Not Deployed
+                  </p>
+                </div>
+
+                <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#analysed">
+                  <h1 class="display-1">8</h1>
+                  <hr class="my-4" />
+                  <p class="lead">
+                    Products Analysed
+                  </p>
+                </div>
+
+                <div class="card col-xl-3 mb-5 col-md-6 jumbocard tab-link" href="#missing-data">
+                  <h1 class="display-1">1</h1>
+                  <hr class="my-4" />
+                  <p class="lead">
+                    Products Missing Data
+                  </p>
+                </div>
+                <!--END INSTANCES-->
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Deployment information
-            </div>
 
-            <div class="card mb-4">
-              <!--graph-->
-              <div class="card-body">
-                <div class="chart-container" id="deploymentChart"></div>
+            <div class="col-xl-6">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-table mr-1"></i>Last 10 Accounts
+                  <a style="float: right; color:#fff;" href="{% url 'listAccounts' %}" type="button">Wiew All
+                    Accounts</a>
+                </div>
+              </div>
+
+              <div class="card card-body">
+                <table class="table table-sm">
+                  <tr>
+                    <th></th>
+                    <th>Company name</th>
+                    <th>Date uploaded</th>
+                    <th>Code</th>
+                    <th>Status</th>
+                    <th>Area</th>
+                    <th></th>
+
+                  </tr>
+
+                  {% for account in accounts %}
+
+                  <tr class="t-rows">
+                    <td></td>
+                    <td class="link">{{account.name}}</td>
+                    <td>{{account.dateUploaded}}</td>
+                    <td>{{account.code}}</td>
+                    <td>{{account.status}}</td>
+                    <td>{{account.area}}</td>
+                    <td><a type="button">Download</td>
+
+                  </tr>
+                  {% endfor %}
+
+
+
+
+
+                </table>
               </div>
             </div>
-          </div>
-
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Completness Summary
-            </div>
-
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="chart-container" id="myBarChart"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-6">
-            <div class="card-header-tab">
-              <i class="fas fa-chart-bar mr-1"></i>Product Summary
-            </div>
-
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="chart-container" id="gapDetails"></div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
 
-        <!--END CHARTS-->
+        <!-- END LIST-->
+
+        <!-- PA EA 
 
         <div class="card mb-4">
-          <div class="card-header">
-            <i class="fas fa-table mr-1"></i>Online Backup Analysis Table
-          </div>
+          <div class="card-header"><i class="fas fa-table mr-1"></i>PA EA</div>
         </div>
+
+        END PA EA -->
       </div>
     </main>
     <footer class="py-4 bg-light mt-auto">
@@ -137,9 +166,46 @@
       </div>
     </footer>
   </div>
-  <!--
-      Demo content
-    -->
 
+  <script>
+    $(function () {
+      $(".jumbocard").click(function (e) {
+        $(".details").addClass("show");
+        //e.preventDefault();
+      });
+    });
+
+    $(".tab-link").on("click", function () {
+      // Switch the class on the previously active div to make it hidden
+      $(".active-list").removeClass("active-list").addClass("inactive");
+      // Switch the class on the new active div to show it
+      var selectorForActiveDemo = $(this).attr("href");
+      $(selectorForActiveDemo)
+        .removeClass("inactive")
+        .addClass("active-list");
+    });
+
+    $(".jumbocard").click(function (e) {
+      $(".nav-link").removeClass("active");
+
+      var $this = $(this);
+      if (!$this.hasClass("active")) {
+        $this.addClass("active");
+      }
+      //e.preventDefault();
+    });
+
+    $(document).ready(function () {
+      $(".nav-link").click(function (e) {
+        $(".nav-link").removeClass("active");
+
+        var $this = $(this);
+        if (!$this.hasClass("active")) {
+          $this.addClass("active");
+        }
+        //e.preventDefault();
+      });
+    });
+  </script>
   {% endblock %}
 </body>
