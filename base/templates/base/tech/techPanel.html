@@ -136,7 +136,7 @@
 
             </div>
             <div class="card card-body">
-              <table class="table table-sm">
+              <table id="accountTable" class="table table-sm">
                 <tr>
                   <th></th>
                   <th>Company name</th>
@@ -158,7 +158,9 @@
                     <td>{{account.code}}</td>
                     <td id="status">{{account.status}}</td>
                     <td>{{account.area}}</td>
-                    <td id="downloadbtn"><a type="button">Download</td>
+                    <td id="uploadBtn" class="hide"><a type="button" style="margin-left: 2px;">Upload</td>
+                    <td id="downloadbtn"><a type="button">Download
+                    </td>
 
                   </tr>
                   {% endfor %}
@@ -190,6 +192,32 @@
       <div class="modal-content"></div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function () {
+
+
+      $('#userTable tr').each(function () {
+        var x = $(this).find("#role").html();
+        if (x == 'Company') {
+          $(this).find("#uploadBtn").removeClass('hide');
+        }
+      });
+
+
+      $('#accountTable tr').each(function () {
+        var x = $(this).find("#status").html();
+        if (x != 'Final Pack Uploaded') {
+          $(this).find("#uploadBtn").removeClass('hide');
+          $(this).find("#downloadbtn").addClass('hide');
+        }
+      });
+
+
+
+
+    });
+  </script>
 
 
   {% endblock %}

@@ -6,67 +6,90 @@
 <body class="sb-nav-fixed sb-sidenav-toggled">
     {% endblock %}
     <div id="layoutSidenav_content">
+        <div class="container-fluid" style="margin-top: 100px;">
 
-        <div class="col-xl-12">
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>List of Accounts
-                    <a style="float: right;" href="{% url 'addAccount' %}" type="button">Wiew All Accounts</a>
+            <div class="col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>List of Accounts
+                    </div>
                 </div>
-            </div>
 
-            <form method="POST">
-                <i style="padding-left: 2px;" class="fas fa-filter"></i>
-                {% csrf_token %}
+                <form method="POST">
+                    <i style="padding-left: 2px;" class="fas fa-filter"></i>
+                    {% csrf_token %}
 
-                <span id="nameLabel">{{myAccountFilter.form.name.label}}</span>
-                {{myAccountFilter.form.name  | add_class:"selection"}}
+                    <span id="nameLabel">{{myAccountFilter.form.name.label}}</span>
+                    {{myAccountFilter.form.name  | add_class:"selection"}}
 
-                <span id="nameLabel">{{myAccountFilter.form.code.label}}</span>
-                {{myAccountFilter.form.code  | add_class:"selection"}}
+                    <span id="nameLabel">{{myAccountFilter.form.code.label}}</span>
+                    {{myAccountFilter.form.code  | add_class:"selection"}}
 
-                <span id="nameLabel">{{myAccountFilter.form.dateUploaded.label}}</span>
-                {{myAccountFilter.form.dateUploaded  | add_class:"selection"}}
+                    <span id="nameLabel">{{myAccountFilter.form.dateUploaded.label}}</span>
+                    {{myAccountFilter.form.dateUploaded  | add_class:"selection"}}
 
-                <span id="nameLabel">{{myAccountFilter.form.status.label}}</span>
-                {{myAccountFilter.form.status  | add_class:"selection"}}
-
-
-                <button class="btn filterbtn" type="submit">Filter</button>
-            </form>
-
-            <div class="card card-body">
-                <table class="table table-sm">
-                    <tr>
-                        <th></th>
-                        <th>Company name</th>
-                        <th>Date uploaded</th>
-                        <th>Code</th>
-                        <th>Status</th>
-                        <th>Area</th>
-                        <th></th>
-
-                    </tr>
-                    {% for account in accounts %}
-
-                    <tr>
-                        <td></td>
-                        <td>{{account.name}}</td>
-                        <td>{{account.dateUploaded}}</td>
-                        <td>{{account.code}}</td>
-                        <td>{{account.status}}</td>
-                        <td>{{account.area}}</td>
-                        <td><a type="button">Download</td>
-
-                    </tr>
-                    {% endfor %}
+                    <span id="nameLabel">{{myAccountFilter.form.status.label}}</span>
+                    {{myAccountFilter.form.status  | add_class:"selection"}}
 
 
+                    <button class="btn filterbtn" type="submit">Filter</button>
+                </form>
+
+                <div class="card card-body">
+                    <table id="accountTable" class="table table-sm">
+                        <tr>
+                            <th></th>
+                            <th>Company name</th>
+                            <th>Date uploaded</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                            <th>Area</th>
+                            <th></th>
+
+                        </tr>
+                        {% for account in accounts %}
+
+                        <tr>
+                            <td></td>
+                            <td>{{account.name}}</td>
+                            <td>{{account.dateUploaded}}</td>
+                            <td>{{account.code}}</td>
+                            <td id="status">{{account.status}}</td>
+                            <td>{{account.area}}</td>
+                            <td id="viewBtn"><a href="{% url 'overview' %}" type="button" style="margin-left: 2px;">View
+                                    Report</td>
+                            <td id="downloadbtn"><a type="button">Download Report
+                            </td>
+
+                        </tr>
+                        {% endfor %}
 
 
-                </table>
+
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+
+
+
+
+            $('#accountTable tr').each(function () {
+                var x = $(this).find("#status").html();
+                if (x != 'Final Pack Uploaded') {
+                    $(this).find("#viewBtn").addClass('hide');
+                    $(this).find("#downloadbtn").addClass('hide');
+                }
+            });
+
+
+
+
+        });
+    </script>
 
     {%endblock%}

@@ -11,40 +11,41 @@
 
   <div class="row">
     <!--CARDS-->
+
     <div class="col-xl-6 col-md-6">
       <div id="formContent">
 
         <div class="card">
           <div class="card-header">
-            Download
+            Data Collection
           </div>
           <div class="card-body">
-            <h5 class="card-title">- Data Collection-</h5>
+            <h5 class="card-title">- Online forms -</h5>
             <p class="card-text">
-              Here you can have more information on how the Data Collection process should look like&nbsp; <a
-                type="button" data-toggle="modal" data-target="#LVQ"> here</a>
+              For a brief summary of Data Collection and how the process should look like click&nbsp;<a type="button"
+                data-toggle="modal" data-target="#Outputs">
+                here</a>
             </p>
-            <a type="button" data-toggle="modal" data-target="#Download" class="btn">Download Data Collection</a>
+            <a type="button" data-toggle="modal" href="{% url 'upload'  %}" class="btn ">Proceed to Data Collection</a>
           </div>
         </div>
       </div>
     </div>
 
-
     <div class="col-xl-6 col-md-6">
       <div id="formContent">
 
         <div class="card">
           <div class="card-header">
-            Upload
+            Report
           </div>
           <div class="card-body">
-            <h5 class="card-title">- Upload filled Data Collection -</h5>
+            <h5 class="card-title">- Analysis Report-</h5>
             <p class="card-text">
-              To make sure we have all the data we need, You can check here&nbsp;<a type="button" data-toggle="modal"
-                data-target="#Outputs"> here</a>
+              The analysis and the report are complete, to see the overview of Your report please click&nbsp; <a
+                type="button" data-toggle="modal" data-target="#LVQ"> here</a>
             </p>
-            <a type="button" data-toggle="modal" href="{% url 'upload'  %}" class="btn ">Upload Data</a>
+            <a type="button" href="{% url 'test' %}" class="btn">Proceed to the Report</a>
           </div>
         </div>
       </div>

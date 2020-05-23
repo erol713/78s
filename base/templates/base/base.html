@@ -71,6 +71,22 @@
 
     {% endif %}
 
+    {% if request.user|has_group:"admin" %}
+
+    <ul class="navbar-nav d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <li class=" nav-item dropleft">
+        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+
+        <div class="dropdown-menu" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Vivacom uploaded Data Collection</a>
+          <a class="dropdown-item" href="#">Mapfre updated Data collection</a>
+        </div>
+      </li>
+    </ul>
+
+    {% endif %}
+
     <span class="navbar-nav d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">Hello, {{request.user}}
     </span>
     <ul class="navbar-nav d-md-inline-block">
@@ -81,7 +97,7 @@
           <a class="dropdown-item" href="{% url 'test' %}">Test</a><a class="dropdown-item"
             href="{% url 'uploadDownload'  %}">Upload data</a>
           <a class="dropdown-item" href="{% url 'tech'  %}">Technical team</a>
-          <a class="dropdown-item" href="{% url 'overview'  %}">MF</a>
+          <a class="dropdown-item" href="{% url 'listAccounts'  %}">MF</a>
           <div class="dropdown-divider"></div>
 
           <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>

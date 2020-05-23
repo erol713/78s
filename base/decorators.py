@@ -37,7 +37,7 @@ def home_pages(view_func):
             group = request.user.groups.all()[0].name
 
         if group == 'MF':
-            return redirect('overview')
+            return redirect('listAccounts')
 
         if group == 'Company':
             return redirect('uploadDownload')

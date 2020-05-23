@@ -3,8 +3,12 @@
     <td></td>
     <td>{{user.username}}</td>
     <td>{{user.date}}</td>
-    <td>{{user.role}}</td>
+    <td id="role">{{user.role}}</td>
     <td>{{user.area}}</td>
+    <td id="uploadBtn" class="hide">
+        <button class="show-form-upload" data-url="{% url 'deleteUser' user.id %}">Upload DC
+        </button>
+    </td>
     <td>
         <button class="show-form-delete" data-url="{% url 'deleteUser' user.id %}">Delete
         </button>

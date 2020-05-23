@@ -197,3 +197,21 @@
   float: right;
   margin-right: 3px;
 }
+
+
+.show-form-upload {
+  background-color: #fff;
+  border: 2px solid #2cacc9;
+  color: #2cacc9;
+  margin-left: 3px;
+}
+
+.show-form-upload:hover {
+  background-color: #2cacc9;
+  border: 2px solid #2cacc9;
+  color: #fff !important;
+}
+
+.hide {
+  opacity: 0;
+}
