@@ -1,0 +1,77 @@
+{% extends 'base/uploadData/uploadHeader.html' %} {% block content %}
+
+{% load static %}
+
+<div class="title">
+    <h1>Pick a Business Unit for Data Collection process</h1>
+
+</div>
+
+<div class="wrapper">
+
+    <div class="row">
+        <!--CARDS-->
+
+        <div class="col-xl-6 col-md-6">
+            <div id="formContent">
+
+                <div class="card">
+                    <div class="card-header">
+                        Micro Focus
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img class="logo-mf img-responsive navbar-nav d-md-inline-block form-inline ml-auto mr-0"
+                                src="{% static '/images/mf.png' %}" />
+                        </h5><br><br><br><br>
+                        <p class="card-text">
+                            LVQ, Output and Screenshots
+                        </p>
+                        <a type="button" data-toggle="modal" href="{% url 'dataCollection'  %}" class="btn ">Proceed to
+                            Data
+                            Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-md-6">
+            <div id="formContent">
+
+                <div class="card">
+                    <div class="card-header">
+                        Qlik
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img class="img-responsive logo-mf navbar-nav d-md-inline-block form-inline ml-auto mr-0"
+                                src="{% static '/images/qlik.png' %}" />
+
+                        </h5>
+                        <br><br><br><br>
+                        <p class="card-text">
+                            LVQ and scripts
+                        </p>
+                        <a type="button" href="{% url 'dataCollection' %}" class="btn">Proceed to Data Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--END CARDS-->
+    </div>
+</div>
+
+</div>
+<img class="logo-78s" src="{% static '/images/78s.png' %}" />
+
+
+<!-- Modal -->
+{% include "base/uploadData/details.html" %}
+{% include "base/uploadData/download.html" %}
+
+
+
+
+{% endblock %}

@@ -131,7 +131,7 @@ def addAccount(request):
 
 
 @allowed_users(allowed_roles=['admin'])
-def addAccount2(request):
+def businessUnits(request):
     account = Account.objects.latest('dateUploaded')
     form = AccountForm()
     form.fields["username"].queryset = Access.objects.filter(role='MF')
@@ -144,7 +144,41 @@ def addAccount2(request):
             return redirect('tech')
 
     context = {'form': form}
-    return render(request, 'base/tech/addAccount2.html', context)
+    return render(request, 'base/tech/pickBU.html', context)
+
+
+@allowed_users(allowed_roles=['admin'])
+def dataCollection(request):
+    account = Account.objects.latest('dateUploaded')
+    form = AccountForm()
+    form.fields["username"].queryset = Access.objects.filter(role='MF')
+    print(account)
+    if request.method == 'POST':
+        form = AccountForm(request.POST, request.FILES,
+                           instance=Account.objects.get(name=account))
+        if form.is_valid():
+            form.save()
+            return redirect('tech')
+
+    context = {'form': form}
+    return render(request, 'base/tech/dataCollection.html', context)
+
+
+@allowed_users(allowed_roles=['admin'])
+def finalPack(request):
+    account = Account.objects.latest('dateUploaded')
+    form = AccountForm()
+    form.fields["username"].queryset = Access.objects.filter(role='MF')
+    print(account)
+    if request.method == 'POST':
+        form = AccountForm(request.POST, request.FILES,
+                           instance=Account.objects.get(name=account))
+        if form.is_valid():
+            form.save()
+            return redirect('tech')
+
+    context = {'form': form}
+    return render(request, 'base/tech/finalPack.html', context)
 
 
 @login_required(login_url='welcome')

@@ -15,7 +15,9 @@ urlpatterns = [
     path('addUser', views.addUser, name='addUser'),
     path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),
-    path('addAccount/Details', views.addAccount2, name='addAccount2'),
+    path('DataCollection', views.dataCollection, name='dataCollection'),
+    path('FinalPack', views.finalPack, name='finalPack'),
+    path('businessUnits', views.businessUnits, name='businessUnits'),
     path('tech/deleteUser/<str:pk>/', views.deleteUser, name='deleteUser'),
 
 

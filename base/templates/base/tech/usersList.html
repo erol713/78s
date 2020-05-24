@@ -6,8 +6,8 @@
     <td id="role">{{user.role}}</td>
     <td>{{user.area}}</td>
     <td id="uploadBtn" class="hide">
-        <button class="show-form-upload" data-url="{% url 'deleteUser' user.id %}">Upload DC
-        </button>
+        <a href="{% url 'businessUnits'  %}" style="border: none;"><button class="show-form-upload">Upload DC
+            </button></a>
     </td>
     <td>
         <button class="show-form-delete" data-url="{% url 'deleteUser' user.id %}">Delete
