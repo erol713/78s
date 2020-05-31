@@ -3,38 +3,66 @@
 {% load static %}
 
 <div class="title">
-  <h1>Upload Page</h1>
+  <h1>Welcome {{request.user}}</h1>
 
 </div>
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <div class="fadeIn first">
-      <img class="logo-78s" src="{% static '/images/78s.png' %}" />
-    </div>
-    <form method="POST" action="" enctype="multipart/form-data">
-      {% csrf_token %}
 
+<div class="wrapper">
 
-      <div id="show" class="upload">
-        <div class="box has-advanced-upload">
-          <div class="box__input">
-            <h3>Please Upload Filled Data Collection</h3>
-            {{form.filledDataCollection}}
+  <div class="row">
+    <!--CARDS-->
+
+    <div class="col-xl-6 col-md-6">
+      <div id="formContent">
+
+        <div class="card">
+          <div class="card-header">
+            Data Collection
           </div>
-
+          <div class="card-body">
+            <h5 class="card-title">- Online forms -</h5>
+            <p class="card-text">
+              For a brief summary of Data Collection and how the process should look like click&nbsp;<a type="button"
+                data-toggle="modal" data-target="#Outputs">
+                here</a>
+            </p>
+            <a type="button" data-toggle="modal" href="{% url 'upload'  %}" class="btn ">Proceed to Data Collection</a>
+          </div>
         </div>
       </div>
-      {{userForm.errors}}
-      <input type="submit" class="mx-auto fadeIn fourth" name="addUser" value="Upload data" />
-    </form>
+    </div>
+
+    <div class="col-xl-6 col-md-6">
+      <div id="formContent">
+
+        <div class="card">
+          <div class="card-header">
+            Report
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">- Analysis Report-</h5>
+            <p class="card-text">
+              The analysis and the report are complete, to see the overview of Your report please click&nbsp; <a
+                type="button" data-toggle="modal" data-target="#LVQ"> here</a>
+            </p>
+            <a type="button" href="{% url 'test' %}" class="btn">Proceed to the Report</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--END CARDS-->
   </div>
+</div>
+
 </div>
 <img class="logo-78s" src="{% static '/images/78s.png' %}" />
 
 
 <!-- Modal -->
 {% include "base/uploadData/details.html" %}
-{% include "base/uploadData/upload.html" %}
+{% include "base/uploadData/download.html" %}
 
 
 

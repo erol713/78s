@@ -454,8 +454,9 @@ ul {
 }
 
 .box {
-  outline: 2px dashed black;
+  outline: 2px dashed #2cacc9;
   outline-offset: -30px;
+  height: 150px;
 }
 
 .box__input {

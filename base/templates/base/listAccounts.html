@@ -25,14 +25,15 @@
                     <span id="nameLabel">{{myAccountFilter.form.name.label}}</span>
                     {{myAccountFilter.form.name  | add_class:"selection"}}
 
-                    <span id="nameLabel">{{myAccountFilter.form.code.label}}</span>
-                    {{myAccountFilter.form.code  | add_class:"selection"}}
-
                     <span id="nameLabel">{{myAccountFilter.form.dateUploaded.label}}</span>
                     {{myAccountFilter.form.dateUploaded  | add_class:"selection"}}
 
                     <span id="nameLabel">{{myAccountFilter.form.status.label}}</span>
                     {{myAccountFilter.form.status  | add_class:"selection"}}
+
+                    <span id="nameLabel">{{myAccountFilter.form.gap.label}}</span>
+                    {{myAccountFilter.form.gap  | add_class:"selection"}}
+
 
 
                     <button class="btn filterbtn" type="submit">Filter</button>
@@ -47,7 +48,7 @@
                             <th>Code</th>
                             <th>Status</th>
                             <th>Area</th>
-                            <th></th>
+                            <th>Gap possibility</th>
 
                         </tr>
                         {% for account in accounts %}
@@ -59,6 +60,7 @@
                             <td>{{account.code}}</td>
                             <td id="status">{{account.status}}</td>
                             <td>{{account.area}}</td>
+                            <td>{{account.gap}}</td>
                             <td id="viewBtn"><a href="{% url 'overview' %}" type="button" style="margin-left: 2px;">View
                                     Report</td>
                             <td id="downloadbtn"><a type="button" data-toggle="modal" data-target="#Download">Download
@@ -98,27 +100,5 @@
 
         });
     </script>
-
-    <div class="modal fade" id="Download" tabindex="-1" role="dialog" aria-labelledby="downloadLabel">
-        <div class="modal-dialog" role="document">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="false">&times;</span>
-            </button>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="downloadLabel">Final Pack</h4>
-                </div>
-                <div class="modal-body">
-                    <img class="img-responsive" id="download" style="max-width: 100%;"
-                        src="{% static '/images/download.jpg' %}" />
-                </div>
-                <div class="modal-footer">
-                    <div class="modalBtns">
-                        <a type="button" class="btn close" onclick="downloading('download');">Download</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     {%endblock%}

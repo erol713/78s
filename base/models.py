@@ -36,6 +36,11 @@ class Account(models.Model):
         ('Americas', 'Americas'),
     )
 
+    GAP = (
+        ('YES', 'YES'),
+        ('NO', 'NO'),
+    )
+
     STATUS = (
         ('Data collection sent', 'Data collection sent'),
         ('Data Received', 'Data Received'),
@@ -48,9 +53,11 @@ class Account(models.Model):
     code = models.CharField(max_length=30)
     dateReceived = models.DateTimeField(auto_now_add=True)
     dateUploaded = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=30, null=True, choices=STATUS)
+    status = models.CharField(
+        max_length=30, blank=True, null=True, choices=STATUS)
     area = models.CharField(max_length=10, choices=AREAS)
     finalPack = models.FileField(null=True, blank=True)
+    gap = models.CharField(max_length=30, blank=True, null=True, choices=GAP)
 
     def __str__(self):
         return self.name

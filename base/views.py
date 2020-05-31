@@ -29,6 +29,7 @@ def home(request):
 
     delivered = accounts.filter(status='Final Pack Uploaded').count()
     analysis = accounts.filter(status='Analysis').count()
+    gap = accounts.filter(gap='YES').count()
 
     myAccessFilter = AccessFilter(request.GET, queryset=users)
     users = myAccessFilter.qs
@@ -38,7 +39,7 @@ def home(request):
 
     context = {'accounts': accounts, 'users': users,
                'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter,
-               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis}
+               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis, 'gap': gap}
 
     return render(request, 'base/tech/techPanel.html', context)
 
@@ -168,13 +169,15 @@ def dataCollection(request):
 def finalPack(request):
     account = Account.objects.latest('dateUploaded')
     form = AccountForm()
-    form.fields["username"].queryset = Access.objects.filter(role='MF')
-    print(account)
     if request.method == 'POST':
-        form = AccountForm(request.POST, request.FILES,
-                           instance=Account.objects.get(name=account))
-        if form.is_valid():
-            form.save()
+        print('all good pt1')
+
+        form1 = finalPackForm(request.POST, request.FILES,
+                              instance=Account.objects.get(name=account))
+        print(form)
+        if form1.is_valid():
+            form1.instance.status = "Final Pack Uploaded"
+            form1.save()
             return redirect('tech')
 
     context = {'form': form}
@@ -222,6 +225,7 @@ def tech(request):
 
     delivered = accounts.filter(status='Final Pack Uploaded').count()
     analysis = accounts.filter(status='Analysis').count()
+    gap = accounts.filter(gap='YES').count()
 
     myAccessFilter = AccessFilter(request.GET, queryset=users)
     users = myAccessFilter.qs
@@ -231,7 +235,7 @@ def tech(request):
 
     context = {'accounts': accounts, 'users': users,
                'myAccessFilter': myAccessFilter, 'myAccountFilter': myAccountFilter,
-               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis}
+               'total_accounts': total_accounts, 'delivered': delivered, 'analysis': analysis, 'gap': gap}
 
     return render(request, 'base/tech/techPanel.html', context)
 

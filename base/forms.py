@@ -17,6 +17,12 @@ class AccountForm(ModelForm):
         fields = '__all__'
 
 
+class finalPackForm(ModelForm):
+    class Meta:
+        model = Account
+        fields = ['finalPack', 'gap', 'status']
+
+
 class AccessForm(ModelForm):
     class Meta:
         model = Access

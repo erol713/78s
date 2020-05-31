@@ -2,119 +2,115 @@
 //size of circle matching the size of the deployment
 
 var myConfig = {
-  graphset: [
-    {
-      backgroundColor: "#fff",
-      shapes: [
-        {
-          type: "zingchart.maps",
-          options: {
-            name: "espL2",
-            scrolling: false,
-            zoom: 1,
-            style: {
-              borderWidth: 1,
-              borderColor: "#0073a3",
-              borderAlpha: 0.1,
-              backgroundColor: "#008aad",
-              controls: {
-                visible: true,
-              },
-              label: {
-                visible: false,
-              },
-              hoverState: {
-                visible: false,
-              },
+  graphset: [{
+    backgroundColor: "#fff",
+    shapes: [{
+        type: "zingchart.maps",
+        options: {
+          name: "espL2",
+          scrolling: false,
+          zoom: 1,
+          style: {
+            borderWidth: 1,
+            borderColor: "#0073a3",
+            borderAlpha: 0.1,
+            backgroundColor: "#008aad",
+            controls: {
+              visible: true,
+            },
+            label: {
+              visible: false,
+            },
+            hoverState: {
+              visible: false,
             },
           },
         },
-        {
-          type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
-          id: "sd",
-          x: "-3.7037lon", // hook shape based on lon/lat
-          y: "40.4167lat", // hook shape based on lon/lat
-          map: "espL2", // assigning to map name or id is necessary
-          size: 16,
-          offsetY: -20,
-          "background-color": "#4dd0e1",
-          cursor: "pointer",
-          target: "_blank", // just like HTMl we have target _blank
-          tooltip: {
-            backgroundColor: "rgba(44, 172, 201,0.5)",
-            fontColor: "white",
-            fonColor: "#fff",
-            borderColor: "#2cacc9",
-            borderRadius: 3,
-            fontSize: 16,
-            text: "6 instances",
-          },
+      },
+      {
+        type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
+        id: "sd",
+        x: "-3.7037lon", // hook shape based on lon/lat
+        y: "40.4167lat", // hook shape based on lon/lat
+        map: "espL2", // assigning to map name or id is necessary
+        size: 16,
+        offsetY: -20,
+        "background-color": "#4dd0e1",
+        cursor: "pointer",
+        target: "_blank", // just like HTMl we have target _blank
+        tooltip: {
+          backgroundColor: "rgba(44, 172, 201,0.5)",
+          fontColor: "white",
+          fonColor: "#fff",
+          borderColor: "#2cacc9",
+          borderRadius: 3,
+          fontSize: 16,
+          text: "6 instances",
         },
+      },
 
-        {
-          type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
-          id: "sd2",
-          x: "-0.887712lon", // hook shape based on lon/lat
-          y: "41.649693lat", // hook shape based on lon/lat
-          map: "espL2", // assigning to map name or id is necessary
-          size: 5,
-          "background-color": "#4dd0e1",
-          cursor: "pointer",
-          url:
-            "https://en.wikipedia.org/wiki/Anchorman:_The_Legend_of_Ron_Burgundy", // is how you link url to shapes
-          target: "_blank", // just like HTMl we have target _blank
-          tooltip: {
-            backgroundColor: "#2cacc9",
-            fontColor: "white",
-            borderColor: "#333",
-            borderRadius: 3,
-            fontSize: 16,
-            text: "1 instance",
-          },
+      {
+        type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
+        id: "sd2",
+        x: "-0.887712lon", // hook shape based on lon/lat
+        y: "41.649693lat", // hook shape based on lon/lat
+        map: "espL2", // assigning to map name or id is necessary
+        size: 5,
+        "background-color": "#4dd0e1",
+        cursor: "pointer",
+        url: "https://#", // is how you link url to shapes
+        target: "_blank", // just like HTMl we have target _blank
+        tooltip: {
+          backgroundColor: "#2cacc9",
+          fontColor: "white",
+          borderColor: "#333",
+          borderRadius: 3,
+          fontSize: 16,
+          text: "1 instance",
         },
+      },
 
-        {
-          type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
-          id: "sd3",
-          x: "2.154007lon", // hook shape based on lon/lat
-          y: "41.390205lat", // hook shape based on lon/lat
-          map: "espL2", // assigning to map name or id is necessary
-          size: 9,
-          "background-color": "#4dd0e1",
-          cursor: "pointer",
-          target: "_blank", // just like HTMl we have target _blank
-          tooltip: {
-            backgroundColor: "#2cacc9",
-            fontColor: "white",
-            borderColor: "#fff",
-            borderRadius: 3,
-            fontSize: 16,
-            text: "3 instances",
-          },
+      {
+        type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
+        id: "sd3",
+        x: "2.154007lon", // hook shape based on lon/lat
+        y: "41.390205lat", // hook shape based on lon/lat
+        map: "espL2", // assigning to map name or id is necessary
+        size: 9,
+        "background-color": "#4dd0e1",
+        cursor: "pointer",
+        target: "_blank", // just like HTMl we have target _blank
+        tooltip: {
+          backgroundColor: "#2cacc9",
+          fontColor: "white",
+          borderColor: "#fff",
+          borderRadius: 3,
+          fontSize: 16,
+          text: "3 instances",
         },
+      },
 
-        {
-          type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
-          id: "sd4",
-          x: "-5.994072lon", // hook shape based on lon/lat
-          y: "37.392529lat", // hook shape based on lon/lat
-          map: "espL2", // assigning to map name or id is necessary
-          size: 4,
-          "background-color": "#4dd0e1",
-          cursor: "pointer",
-          target: "_blank", // just like HTMl we have target _blank
-          tooltip: {
-            backgroundColor: "#2cacc9",
-            fontColor: "white",
-            borderColor: "#333",
-            borderRadius: 3,
-            fontSize: 16,
-            text: "2 instances",
-          },
+      {
+        type: "circle", // shapeid is OPTIONAL but smart if you are targeting events to this shape
+        id: "sd4",
+        x: "-5.994072lon", // hook shape based on lon/lat
+        y: "37.392529lat", // hook shape based on lon/lat
+        map: "espL2", // assigning to map name or id is necessary
+        size: 4,
+        "background-color": "#4dd0e1",
+        cursor: "pointer",
+        target: "_blank", // just like HTMl we have target _blank
+        tooltip: {
+          backgroundColor: "#2cacc9",
+          fontColor: "white",
+          borderColor: "#333",
+          borderRadius: 3,
+          fontSize: 16,
+          text: "2 instances",
         },
-      ],
-    },
-  ],
+      },
+    ],
+  }, ],
   tooltip: {
     backgroundColor: "#fff",
     borderColor: "#333",
