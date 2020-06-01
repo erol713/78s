@@ -12,6 +12,7 @@ urlpatterns = [
     path('uploadDownload', views.uploadDownload, name='uploadDownload'),
     path('tech', views.tech, name='tech'),
     path('listAccounts', views.listAccounts, name='listAccounts'),
+    path('dataOverview', views.dataOverview, name='dataOverview'),
     path('addUser', views.addUser, name='addUser'),
     path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),

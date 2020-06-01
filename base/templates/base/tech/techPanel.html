@@ -160,7 +160,7 @@
                     <td>{{account.area}}</td>
                     <td id="uploadBtn" class="hide"><a type="button" href="{% url 'finalPack' %}"
                         style="margin-left: 2px;">Upload</td>
-                    <td id="downloadbtn"><a type="button">Download
+                    <td id="downloadbtn"><a type="button" data-toggle="modal" data-target="#Download">Download
                     </td>
 
                   </tr>
@@ -220,6 +220,8 @@
     });
   </script>
 
+  <!-- Modal -->
+  {% include "base/uploadData/download.html" %}
 
   {% endblock %}
 </body>

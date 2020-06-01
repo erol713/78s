@@ -1,0 +1,107 @@
+{% extends 'base/navbars/sidenav.html' %} {% block content %}{%block body %}
+{% load groupFilter %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+
+
+<body class="sb-nav-fixed sb-sidenav-toggled">
+    {% endblock %}
+    <div id="layoutSidenav_content">
+        <div class="container-fluid" style="margin-top: 100px;">
+
+            <div class="col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>Data overview
+                    </div>
+                </div>
+
+                <form method="POST">
+                    <i style="padding-left: 2px;" class="fas fa-filter"></i>
+                    {% csrf_token %}
+
+                    <span id="nameLabel">{{myAccessFilter.form.name.label}}</span>
+                    {{myAccessFilter.form.name  | add_class:"selection"}}
+
+                    <span id="nameLabel">{{myAccessFilter.form.dateUploaded.label}}</span>
+                    {{myAccessFilter.form.dateUploaded  | add_class:"selection"}}
+
+                    <span id="nameLabel">{{myAccessFilter.form.status.label}}</span>
+                    {{myAccessFilter.form.status  | add_class:"selection"}}
+
+                    <span id="nameLabel">{{myAccessFilter.form.gap.label}}</span>
+                    {{myAccessFilter.form.gap  | add_class:"selection"}}
+
+
+
+                    <button class="btn filterbtn" type="submit">Filter</button>
+                </form>
+
+                <div class="card card-body">
+                    <table id="accountTable" class="table table-sm">
+                        <tr>
+                            <th></th>
+                            <th>Company name</th>
+                            <th>Area</th>
+                            <th>Data Collection Sent</th>
+                            <th></th>
+                            <th>Data Collection Uploaded </th>
+
+
+                        </tr>
+                        {% for acces in access %}
+
+                        <tr>
+                            <td></td>
+                            <td>{{acces.username}}</td>
+                            <td>{{acces.area}}</td>
+                            <td id="status">{{acces.dataCollection}}</td>
+                            <td id="downloadbtn"><a type="button" data-toggle="modal" data-target="#Download">Download
+                                    DC
+                            </td>
+                            <td>{{acces.filledDataCollection}}</td>
+                            <td id="downloadbtn"><a type="button" data-toggle="modal" data-target="#Download">Download
+                                    uploaded DC
+                            </td>
+
+
+                        </tr>
+                        {% endfor %}
+
+
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    {% include "base/uploadData/download.html" %}
+
+    <script>
+        function downloading(val) {
+            document.getElementById(val.toString()).src =
+                "{% static '/images/loading.gif' %}";
+
+            setTimeout(function () {
+                document.getElementById(val).src = "{% static '/images/complete2.png' %}";
+            }, 2000);
+        }
+        $(document).ready(function () {
+
+            $('#accountTable tr').each(function () {
+                var x = $(this).find("#status").html();
+                if (x == '') {
+                    $(this).find("#downloadbtn").addClass('hide');
+                }
+            });
+
+        });
+    </script>
+
+    {%endblock%}

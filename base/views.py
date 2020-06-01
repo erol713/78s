@@ -257,6 +257,17 @@ def listAccounts(request):
     return render(request, 'base/listAccounts.html', {'accounts': accounts, 'myAccountFilter': myAccountFilter})
 
 
+@allowed_users(allowed_roles=['admin'])
+def dataOverview(request):
+
+    access = Access.objects.filter(role="Company")
+
+    myAccessFilter = AccessFilter(request.POST, queryset=access)
+    access = myAccessFilter.qs
+
+    return render(request, 'base/tech/dataOverview.html', {'access': access, 'myAccessFilter': myAccessFilter})
+
+
 def test(request):
     accounts = Account.objects.all()
     users = Access.objects.all()
