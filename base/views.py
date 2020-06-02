@@ -202,16 +202,11 @@ def uploadDownload(request):
 
 
 @login_required(login_url='welcome')
-@allowed_users(allowed_roles=['admin', 'MF'])
-def overview(request):
-    groups = request.user.groups.values_list('name', flat=True)
-    if 'MF' in groups:
-        accounts = Account.objects.filter(
-            username__username__contains=request.user)
-    else:
-        accounts = Account.objects.all()
+@allowed_users(allowed_roles=['admin', 'MF', 'Company'])
+def overview(request, pk):
+    account = Account.objects.get(name=pk)
 
-    return render(request, 'base/MF/overview.html', {'accounts': accounts})
+    return render(request, 'base/MF/overview.html', {'account': account})
 
 
 @login_required(login_url='welcome')
@@ -288,6 +283,6 @@ def dp(request):
     return JsonResponse(response, safe=False)
 
 
-def dpw(request):
+def dpw(request, pk):
     response = dpword(request)
     return JsonResponse(response, safe=False)

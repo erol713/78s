@@ -42,10 +42,14 @@
     <a class="navbar-brand" href="{% url 'welcome'  %}">
       <img style="margin-left: 15px;" src="{% static '/images/letterLogo.png' %}">
     </a>
+    {% if request.user|has_group:"admin" %}
 
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
+
+    {% endif %}
+
     <!-- 
       <div
       style="
@@ -94,11 +98,14 @@
         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          {% if request.user|has_group:"admin" %}
+
           <a class="dropdown-item" href="{% url 'test' %}">Test</a><a class="dropdown-item"
             href="{% url 'uploadDownload'  %}">Upload data</a>
           <a class="dropdown-item" href="{% url 'tech'  %}">Technical team</a>
           <a class="dropdown-item" href="{% url 'listAccounts'  %}">MF</a>
           <div class="dropdown-divider"></div>
+          {% endif %}
 
           <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
         </div>
