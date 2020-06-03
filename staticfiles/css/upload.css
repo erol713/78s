@@ -188,6 +188,13 @@ pre {
   color: #fff !important;
 }
 
+.modalBtns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .dropdown-menu-left {
   right: auto;
   left: 0;
@@ -213,7 +220,7 @@ pre {
 
   padding-left: 0px !important;
   padding-right: 20px !important;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 
 }
 
@@ -343,4 +350,55 @@ pre {
   -moz-animation-delay: 1s;
   animation-delay: 1s;
   background-color: #008aad;
+}
+
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+
+.box {
+
+  outline: 2px dashed #2cacc9;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  min-height: 150px;
+  margin-left: 50px;
+
+
+
+
+}
+
+.box__input {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+
+}
+
+.hide {
+  opacity: 0;
+}
+
+
+.show {
+  opacity: 1;
+}
+
+.butt {
+  margin-left: 80px;
 }

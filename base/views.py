@@ -132,11 +132,12 @@ def addAccount(request):
 
 
 @allowed_users(allowed_roles=['admin'])
-def businessUnits(request):
-    account = Account.objects.latest('dateUploaded')
+def businessUnits(request, pk):
+    user = Access.objects.get(username=pk)
+
     form = AccountForm()
     form.fields["username"].queryset = Access.objects.filter(role='MF')
-    print(account)
+
     if request.method == 'POST':
         form = AccountForm(request.POST, request.FILES,
                            instance=Account.objects.get(name=account))
@@ -144,37 +145,39 @@ def businessUnits(request):
             form.save()
             return redirect('tech')
 
-    context = {'form': form}
+    context = {'form': form, 'user': user}
     return render(request, 'base/tech/pickBU.html', context)
 
 
 @allowed_users(allowed_roles=['admin'])
-def dataCollection(request):
-    account = Account.objects.latest('dateUploaded')
-    form = AccountForm()
-    form.fields["username"].queryset = Access.objects.filter(role='MF')
-    print(account)
+def dataCollection(request, pk):
+    user = Access.objects.get(username=pk)
+
+    form = dataCollectionForm()
+
     if request.method == 'POST':
-        form = AccountForm(request.POST, request.FILES,
-                           instance=Account.objects.get(name=account))
-        if form.is_valid():
-            form.save()
+        form1 = dataCollectionForm(request.POST, request.FILES,
+                                   instance=Access.objects.get(username=user.username))
+
+        if form1.is_valid():
+            account = Account.objects.get(name=user.username)
+            account.status = 'Data collection sent'
+            account.save()
+            form1.save()
             return redirect('tech')
 
-    context = {'form': form}
+    context = {'form': form, 'user': user}
     return render(request, 'base/tech/dataCollection.html', context)
 
 
 @allowed_users(allowed_roles=['admin'])
-def finalPack(request):
-    account = Account.objects.latest('dateUploaded')
+def finalPack(request, pk):
+    account = Account.objects.get(name=pk)
     form = AccountForm()
     if request.method == 'POST':
-        print('all good pt1')
 
         form1 = finalPackForm(request.POST, request.FILES,
                               instance=Account.objects.get(name=account))
-        print(form)
         if form1.is_valid():
             form1.instance.status = "Final Pack Uploaded"
             form1.save()
@@ -194,10 +197,21 @@ def upload(request):
 @login_required(login_url='welcome')
 @allowed_users(allowed_roles=['admin', 'Company'])
 def uploadDownload(request):
+    user = Access.objects.get(username=request.user)
 
-    users = Access.objects.all()
+    form = filledDataCollection()
 
-    context = {'users': users}
+    if request.method == 'POST':
+        form1 = filledDataCollection(request.POST, request.FILES,
+                                     instance=Access.objects.get(username=request.user))
+
+        if form1.is_valid():
+            account = Account.objects.get(name=request.user)
+            account.status = 'Data Received'
+            account.save()
+            form1.save()
+
+    context = {'user': user, 'form': form}
     return render(request, 'base/uploadData/uploadDownload.html', context)
 
 

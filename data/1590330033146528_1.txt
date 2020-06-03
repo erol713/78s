@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void my_getline(char input[], long len)
+{
+
+    printf("Text input: ");
+    strcat(fgets(input,len+1,stdin));
+   // printf("Your input: %s\n",input);
+}
+
+
+
+long get_letters(char text[])
+{
+    long length =0;
+    int i = 0;
+    while(text[i]!='\0')
+    {
+        //If first character is not letter, length is 0
+        if(i==0 && !((text[i]>='a' && text[i]<='z') || (text[i]>='A' && text[i]<='Z')))
+        {
+            return 0;
+        }
+        if((text[i]>='a' && text[i]<='z') || (text[i]>='A' && text[i]<='Z'))
+        {
+            length++;
+        }
+        else{
+            return length;
+        }
+        i++;
+    }
+    return length;
+}
+
+long get_others(char text[])
+{
+    long length =0;
+    int i = 0;
+    while(text[i]!='\0')
+    {
+        //If first character is not symbol, length is 0
+        if(i==0 && (text[i]>='a' && text[i]<='z') || (text[i]>='A' && text[i]<='Z'))
+        {
+            return 0;
+        }
+        if(!(text[i]>='a' && text[i]<='z') || (text[i]>='A' && text[i]<='Z'))
+        {
+            length++;
+        }
+        else{
+            return length;
+        }
+        i++;
+    }
+    //-1 zato sto enter pika ko simbol
+    return length-1;
+}
+
+int main()
+{
+    const long len=100;
+    char input[len];
+    long letters, nonletters=0;
+
+    my_getline(input, len);
+
+  //  printf("Your input: %s\n", input );
+
+    letters = get_letters(input);
+    nonletters = get_others(input);
+    if(letters==0)    printf("Length of symbols is: %ld\n", nonletters );
+    else    printf("Length of letters is: %ld\n", letters );
+
+  //  if (letters_first == 0) printf("Broj slova: %ld\n",duzinaSlova);
+
+    return 0;
+}
+

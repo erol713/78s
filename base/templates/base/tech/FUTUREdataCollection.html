@@ -1,0 +1,83 @@
+{% extends 'base/logIn/loginHeader.html' %} {% block content%} {% load static %}
+{% load widget_tweaks %}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent" style="max-width: 2000px !important;">
+        <div class="fadeIn first">
+            <img class="logo-78s" src="{% static '/images/78s.png' %}" />
+        </div>
+        <form method="POST" action="" enctype="multipart/form-data" class="row">
+            <div class="col-xl-4" style="border-right: 1px solid #008aad; border-right: 60%;">
+                <h4 style="color: #008aad;">Server info</h4 style="color: #008aad;">
+                {% csrf_token %}
+                <ul>{{ form.name }}</ul>
+                <ul>{{ form.code }}</ul>
+                <ul id="choices">CM in charge</ul>
+                <ul>{{ form.username | add_class:"selection" }}</ul>
+                <ul id="choices">{{ form.status.label }}</ul>
+                <ul>{{ form.status | add_class:"selection" }}</ul>
+                <ul id="choices">{{ form.area.label }}</ul>
+                <ul>{{ form.area | add_class:"selection" }}</ul>
+            </div>
+
+            <div class="col-xl-4" style="border-right: 1px solid #008aad; border-right: 60%;">
+                <h4 style="color: #008aad;">Scripts to run</h4 style="color: #008aad;">
+
+                {% csrf_token %}
+                <ul>{{ form.name }}</ul>
+                <ul>{{ form.code }}</ul>
+                <ul id="choices">CM in charge</ul>
+                <ul>{{ form.username | add_class:"selection" }}</ul>
+                <ul id="choices">{{ form.status.label }}</ul>
+                <ul>{{ form.status | add_class:"selection" }}</ul>
+                <ul id="choices">{{ form.area.label }}</ul>
+                <ul>{{ form.area | add_class:"selection" }}</ul>
+            </div>
+
+            <div id="show" class="upload col-xl-4">
+                <h4 style="color: #008aad;">Screenshots</h4 style="color: #008aad;">
+
+                <div class="box has-advanced-upload">
+                    <div class="box__input">
+                        <h4>Please Upload Slot Libraries Screenshots</h4>
+                        {{form.finalPack}}
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </div>
+
+                <div class="box has-advanced-upload">
+                    <div class="box__input">
+                        <h4>Please Upload File Libraries Screenshots</h4>
+                        {{form.finalPack}}
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </div>
+
+                <div class="box has-advanced-upload">
+                    <div class="box__input">
+                        <h4>Please Upload StoreOnce Screenshots</h4>
+                        {{form.finalPack}}
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </div>
+            </div>
+            {{userForm.errors}}
+            <input type="submit" class="mx-auto fadeIn fourth" name="#" value="Upload Data Collection" />
+        </form>
+    </div>
+</div>
+
+
+<script>
+    var form_fields = document.getElementsByTagName("input");
+    form_fields[1].placeholder = "Account name...";
+    form_fields[2].placeholder = "Account code...";
+</script>
+
+{% endblock %}

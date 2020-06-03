@@ -6,7 +6,8 @@
     <td id="role">{{user.role}}</td>
     <td>{{user.area}}</td>
     <td id="uploadBtn" class="hide">
-        <a href="{% url 'businessUnits'  %}" style="border: none;"><button class="show-form-upload">Upload DC
+        <a href="{% url 'businessUnits' user.username %}" style="border: none;"><button class="show-form-upload">Upload
+                DC
             </button></a>
     </td>
     <td>

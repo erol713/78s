@@ -16,9 +16,9 @@ urlpatterns = [
     path('addUser', views.addUser, name='addUser'),
     path('addAccount', views.addAccount, name='addAccount'),
     path('test', views.test, name='test'),
-    path('DataCollection', views.dataCollection, name='dataCollection'),
-    path('FinalPack', views.finalPack, name='finalPack'),
-    path('businessUnits', views.businessUnits, name='businessUnits'),
+    path('DataCollection/<str:pk>/', views.dataCollection, name='dataCollection'),
+    path('FinalPack/<str:pk>/', views.finalPack, name='finalPack'),
+    path('businessUnits/<str:pk>/', views.businessUnits, name='businessUnits'),
     path('tech/deleteUser/<str:pk>/', views.deleteUser, name='deleteUser'),
 
 

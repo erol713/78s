@@ -454,9 +454,19 @@ ul {
 }
 
 .box {
+
   outline: 2px dashed #2cacc9;
-  outline-offset: -30px;
-  height: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  min-height: 150px;
+  margin-left: 50px;
+
+
+
+
 }
 
 .box__input {
@@ -466,6 +476,7 @@ ul {
   justify-content: center;
   width: 100%;
   min-height: 100%;
+
 }
 
 
@@ -476,4 +487,18 @@ ul {
 
 .show {
   opacity: 1;
+}
+
+.selection {
+  color: #333;
+  width: 80%;
+  height: 50%;
+  border-color: #f6f6f6;
+  background-color: #f6f6f6;
+  border-radius: 3px 3px 3px 3px;
+
+}
+
+.butt {
+  margin-left: 80px;
 }

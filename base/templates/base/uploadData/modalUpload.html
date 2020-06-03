@@ -1,4 +1,6 @@
 {% load static %}
+{% load widget_tweaks %}
+
 <script>
     function uploading(val) {
         document.getElementById(val.toString()).src =
@@ -20,14 +22,35 @@
             </div>
             <div class="modal-body">
                 <img class="img-responsive" id="upload" src="{% static '/images/upload.gif' %}" />
-                <br><br>
-                <button>Choose files</button> <input type="text" name="" id="">
+
+
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <div id="show" class="upload">
+                        <div class="box has-advanced-upload">
+                            <div class="box__input">
+                                {{form.filledDataCollection | add_class:"butt" }}
+                            </div>
+                            <div class="box__uploading">Uploading&hellip;</div>
+                            <div class="box__success">Done!</div>
+                            <div class="box__error">Error! <span></span>.</div>
+                        </div>
+
+                    </div>
+
+                    {{userForm.errors}}
+                    <div class="modalBtns">
+
+                        <input type="submit" class="btn" name="addUser" onclick="uploading('upload');" value="Upload" />
+                    </div>
+
+                </form>
+
+
             </div>
-            <div class="modal-footer">
-                <div class="modalBtns">
-                    <a type="button" class="btn close" onclick="uploading('upload');">Upload</a>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

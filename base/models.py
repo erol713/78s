@@ -23,6 +23,7 @@ class Access(models.Model):
     role = models.CharField(max_length=10, null=True, choices=ROLES)
     area = models.CharField(max_length=10, null=True, choices=AREAS)
     dataCollection = models.FileField(null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
     filledDataCollection = models.FileField(null=True, blank=True)
 
     def __str__(self):
@@ -57,6 +58,7 @@ class Account(models.Model):
         max_length=30, blank=True, null=True, choices=STATUS)
     area = models.CharField(max_length=10, choices=AREAS)
     finalPack = models.FileField(null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
     gap = models.CharField(max_length=30, blank=True, null=True, choices=GAP)
 
     def __str__(self):

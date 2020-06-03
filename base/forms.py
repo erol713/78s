@@ -34,3 +34,9 @@ class filledDataCollection(ModelForm):
     class Meta:
         model = Access
         fields = ['filledDataCollection']
+
+
+class dataCollectionForm(ModelForm):
+    class Meta:
+        model = Access
+        fields = ['dataCollection', 'notes']
