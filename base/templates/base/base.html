@@ -69,7 +69,7 @@
                 Navbar potential form-->
 
     <!-- Navbar-->
-    {% if request.user|has_group:"EMEA" %}
+    {% if request.user|has_group:"MF" %}
 
     <img class="logo-mf navbar-nav d-md-inline-block form-inline ml-auto mr-0" src="{% static '/images/mf.png' %}" />
 
@@ -83,8 +83,7 @@
           aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
 
         <div class="dropdown-menu" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="{% url 'dataOverview'  %}">Vivacom uploaded Data Collection</a>
-          <a class="dropdown-item" href="{% url 'dataOverview'  %}">Mapfre updated Data collection</a>
+          <a class="dropdown-item" href="{% url 'dataOverview'  %}">Tesla uploaded Data Collection</a>
         </div>
       </li>
     </ul>

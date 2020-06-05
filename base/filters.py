@@ -14,4 +14,4 @@ class AccessFilter(django_filters.FilterSet):
     class Meta:
         model = Access
         fields = '__all__'
-        exclude = ['date', 'dataCollection', 'filledDataCollection']
+        exclude = ['date', 'dataCollection', 'filledDataCollection', 'notes']
